@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Doadores</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Cadastro de Doadores</h1>
+        <button class="home-button" onclick="voltarHome()">Home</button> <!-- Botão Home -->
+    </header>
+    <section class="form-section">
+        <form id="doadorForm">
+            <label for="nomeDoador">Nome Completo:</label>
+            <input type="text" id="nomeDoador" name="nomeDoador" required>
+            
+            <label for="cpf">CPF:</label>
+            <input type="text" id="cpf" name="cpf" required>
+            
+            <label for="emailDoador">Email:</label>
+            <input type="email" id="emailDoador" name="emailDoador" required>
+            
+            <label for="telefoneDoador">Telefone:</label>
+            <input type="tel" id="telefoneDoador" name="telefoneDoador" required>
+            
+            <label for="valorDoacao">Valor da Doação (R$):</label>
+            <input type="number" id="valorDoacao" name="valorDoacao" required>
+            
+            <button type="submit">Cadastrar Doador</button>
+        </form>
+    </section>
+    
+    <section class="list-section">
+        <h2>Doadores Cadastrados</h2>
+        <ul id="listaDoadores"></ul> <!-- Lista de doadores -->
+    </section>
+</body>
+</html>

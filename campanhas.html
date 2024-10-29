@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Campanhas</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Cadastro de Campanhas</h1>
+        <button class="home-button" onclick="voltarHome()">Home</button> <!-- Botão Home -->
+    </header>
+    <section class="form-section">
+        <form id="campanhaForm">
+            <label for="nomeCampanha">Nome da Campanha:</label>
+            <input type="text" id="nomeCampanha" name="nomeCampanha" required>
+            
+            <label for="descricaoCampanha">Descrição:</label>
+            <textarea id="descricaoCampanha" name="descricaoCampanha" required></textarea>
+            
+            <label for="objetivoCampanha">Objetivo (R$):</label>
+            <input type="number" id="objetivoCampanha" name="objetivoCampanha" required>
+            
+            <label for="dataFinalizacao">Data de Finalização:</label>
+            <input type="date" id="dataFinalizacao" name="dataFinalizacao" required>
+            
+            <button type="submit">Cadastrar Campanha</button>
+        </form>
+    </section>
+    
+    <section class="list-section">
+        <h2>Campanhas Cadastradas</h2>
+        <ul id="listaCampanhas"></ul> <!-- Lista de campanhas -->
+    </section>
+</body>
+</html>

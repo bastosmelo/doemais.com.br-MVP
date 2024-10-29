@@ -1,0 +1,100 @@
+/* Estilo do Body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #69996c;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo do Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    padding: 20px;
+    background-color: #426544;
+}
+
+.logo img {
+    height: 300px;
+}
+
+.home button {
+    background-color: #69996c;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.home a {
+    color: white;
+    text-decoration: none;
+}
+
+.home button:hover {
+    background-color: #69996c;
+}
+
+.register-container {
+    max-width: 500px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input,
+.input-group textarea,
+.input-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #69996c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="submit"]:hover {
+    background-color: #2E7D32;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.login-link a {
+    color: #388E3C;
+    text-decoration: none;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}

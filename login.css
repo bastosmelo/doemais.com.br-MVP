@@ -1,0 +1,110 @@
+/* Estilo do Body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #69996c;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo do Header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    padding: 20px;
+    background-color: #426544;
+}
+
+.logo img {
+    height: 300px;
+}
+
+.home button {
+    background-color: #69996c;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.home a {
+    color: white;
+    text-decoration: none;
+}
+
+.home button:hover {
+    background-color: #69996c;
+}
+
+/* Container de Login */
+.login-container {
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilo para ícones sociais */
+.social-icons {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.social-icons img {
+    width: 40px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+#entrar {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    background-color: #69996c;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+#entrar:hover {
+    background-color: #69996c;
+}
+
+.signup-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.signup-link a {
+    color: #69996c;
+    text-decoration: none;
+}
+
+.signup-link a:hover {
+    text-decoration: underline;
+}

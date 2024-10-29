@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Instituições</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Cadastro de Instituições</h1>
+        <button class="home-button" onclick="voltarHome()">Home</button> <!-- Botão Home -->
+    </header>
+    <section class="form-section">
+        <form id="instituicaoForm">
+            <label for="nomeInstituicao">Nome da Instituição:</label>
+            <input type="text" id="nomeInstituicao" name="nomeInstituicao" required>
+            
+            <label for="cnpj">CNPJ:</label>
+            <input type="text" id="cnpj" name="cnpj" required>
+            
+            <label for="emailInstituicao">Email:</label>
+            <input type="email" id="emailInstituicao" name="emailInstituicao" required>
+            
+            <label for="telefoneInstituicao">Telefone:</label>
+            <input type="tel" id="telefoneInstituicao" name="telefoneInstituicao" required>
+            
+            <label for="enderecoInstituicao">Endereço:</label>
+            <textarea id="enderecoInstituicao" name="enderecoInstituicao" required></textarea>
+            
+            <button type="submit">Cadastrar Instituição</button>
+        </form>
+    </section>
+    
+    <section class="list-section">
+        <h2>Instituições Cadastradas</h2>
+        <ul id="listaInstituicoes"></ul> <!-- Lista de instituições -->
+    </section>
+</body>
+</html>
