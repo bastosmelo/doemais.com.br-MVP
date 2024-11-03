@@ -12,6 +12,49 @@
         <h1>Cadastro de Doadores</h1>
         <button class="home-button" onclick="voltarHome()">Home</button> <!-- Botão Home -->
     </header>
+        
+    <section class="list-section">
+        <h2>Doadores Cadastrados</h2>
+        <ul id="listaDoadores"></ul> <!-- Lista de doadores -->
+    </section>
+
+         <!-- Exemplo de doadores cadastrados -->
+         <table id="tabela" class="table">
+            <tbody>
+                <tr>
+                    <td>
+                        <h3>Doe.App</h3>
+                        <p>CNPJ: 00.***.***/0001-**</p>
+                        <p>Endereço: Av. Murilo Dantas, 300 - Farolândia</p>
+                        <p>Contato: Squad 11</p>
+                        <p>Telefone: (79) 1234-5678</p>
+                        <p>Doação: Alimentos</p>
+                    </td>
+                    <td>
+                        <h3>Instituição ABC</h3>
+                        <p>CNPJ: 00.***.***/0001-**</p>
+                        <p>Endereço: Rua Exemplo, 123 - Bairro: Farolândia</p>
+                        <p>Contato: Fulano</p>
+                        <p>Telefone: (79) 1234-5678</p>
+                        <p>Doação: Alimentos</p>
+                    </td>
+                    <td>
+                        <h3>Fulano</h3>
+                        <p>CPF: 000.***.***-00</p>
+                        <p>Endereço: Rua A, 001 - Bairro: Centro</p>
+                        <p>Telefone: (79) 1234-5678</p>
+                        <p>Doação: Roupas</p>
+                    </td>
+                    <td>
+                        <h3>Ciclano</h3>
+                        <p>CPF: 000.***.***-00</p>
+                        <p>Endereço: Rua B, 002 - Bairro: Aeroporto</p>
+                        <p>Telefone: (79) 1234-5678</p>
+                        <p>Doação: Alimentos</p>
+                    </td>
+            </tbody>
+        </table>
+
     <section class="form-section">
         <form id="doadorForm">
             <label for="nomeDoador">Nome Completo:</label>
@@ -31,11 +74,6 @@
             
             <button type="submit">Cadastrar Doador</button>
         </form>
-    </section>
-    
-    <section class="list-section">
-        <h2>Doadores Cadastrados</h2>
-        <ul id="listaDoadores"></ul> <!-- Lista de doadores -->
     </section>
 </body>
 </html>
