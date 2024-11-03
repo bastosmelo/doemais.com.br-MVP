@@ -65,7 +65,7 @@ header {
 
 /* Rodapé */
 footer {
-    background-color: #69996c;
+    background-color: #426544;
     padding: 5px;
     text-align: center;
 }
@@ -168,3 +168,14 @@ form button {
 .list-section ul li:last-child {
     border-bottom: none;
 }
+
+/* Links - Redes Sociais */
+.social-links {
+    margin-bottom: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid #333;
+    margin: 0 5px;
+  }
+  
