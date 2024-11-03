@@ -51,7 +51,12 @@ header {
 
 .carousel-item img {
     width: 100%;
+    height: 70%;
     border-radius: 10px;
+}
+
+.carousel-item:hover{
+    transform: scale(1.05);
 }
 
 .carousel-item button {
@@ -63,27 +68,24 @@ header {
     cursor: pointer;
 }
 
+/* Seção Sobre */
+.about-section {
+    text-align: justify;
+    color: white;
+}
+
+.about-section img {
+    width: 20%;
+    justify-content: center;
+}
+
 /* Rodapé */
 footer {
     background-color: #426544;
-    padding: 5px;
+    padding: 2px;
     text-align: center;
 }
 
-footer ul {
-    list-style: none;
-    padding: 0;
-}
-
-footer ul li {
-    display: inline-block;
-    margin: 0 15px;
-}
-
-footer ul li a {
-    color: white;
-    text-decoration: none;
-}
 
 
 /* Formulários */
@@ -97,10 +99,10 @@ footer ul li a {
 
 form {
     background-color: white;
-    padding: 20px;
+    padding: 30px;
     border-radius: 10px;
     width: 300px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
 }
 
 form label {
@@ -114,7 +116,7 @@ form input, form textarea {
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 form button {
@@ -123,8 +125,18 @@ form button {
     background-color: #69996c;
     border: none;
     color: white;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
+}
+
+/* Tabela das Instituições cadastradas */
+.table {
+    text-align: center;
+    width: 100%;
+    border-width: 8px; /* utilizada para definir o tamanho da borda */
+    border-style: groove; /* utilizada para definir o estilo da borda */
+    border-color: #426544; /* utilizada para definir a cor da borda */
+    border-radius: 10px;
 }
 
 /* Botão Home */
@@ -152,6 +164,10 @@ form button {
 }
 
 .list-section h2 {
+    color: #69996c;
+}
+
+.list-section h3 {
     color: #69996c;
 }
 

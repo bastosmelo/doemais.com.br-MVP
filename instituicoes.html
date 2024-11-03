@@ -12,6 +12,47 @@
         <h1>Cadastro de Instituições</h1>
         <button class="home-button" onclick="voltarHome()">Home</button> <!-- Botão Home -->
     </header>
+
+    <section class="list-section">
+        <h2>Instituições Cadastradas</h2>
+        <p><h3>Veja as instituições cadastradas e contribua!</p></h3>
+        <ul id="listaInstituicoes"></ul> <!-- Lista de instituições -->
+    </section>
+
+     <!-- Exemplo de uma instituição cadastrada -->
+     <table id="tabela" class="table">
+        <tbody>
+            <tr>
+                <td>
+                    <h3>Instituição Doe.App</h3>
+                    <p>CNPJ: 00.000.000/0001-00</p>
+                    <p>Endereço: Av. Murilo Dantas, 300 - Farolândia</p>
+                    <p>Contato: Squad 11</p>
+                    <p>Telefone: (79) 1234-5678</p>
+                </td>
+                <td>
+                    <h3>Instituição ABC</h3>
+                    <p>CNPJ: 00.000.000/0001-00</p>
+                    <p>Endereço: Rua Exemplo, 123 - Bairro: Farolândia</p>
+                    <p>Contato: Fulano</p>
+                    <p>Telefone: (79) 1234-5678</p>
+                </td>
+                <td>
+                    <h3>Instituição XYZ</h3>
+                    <p>CNPJ: 00.000.000/0001-00</p>
+                    <p>Endereço: Rua Modelo, 001 - Bairro: Atalaia</p>
+                    <p>Contato: Ciclano</p>
+                    <p>Telefone: (79) 1234-5678</p>
+                </td>
+                <td>
+                    <h3>Instituição AEIOU</h3>
+                    <p>CNPJ: 00.000.000/0001-00</p>
+                    <p>Endereço: Rua Universidade, 999 - Bairro: 13 de Julho</p>
+                    <p>Contato: Beltrano</p>
+                    <p>Telefone: (79) 1234-5678</p>
+                </td>
+        </tbody>
+    </table>
     <section class="form-section">
         <form id="instituicaoForm">
             <label for="nomeInstituicao">Nome da Instituição:</label>
@@ -33,9 +74,6 @@
         </form>
     </section>
     
-    <section class="list-section">
-        <h2>Instituições Cadastradas</h2>
-        <ul id="listaInstituicoes"></ul> <!-- Lista de instituições -->
-    </section>
+
 </body>
 </html>

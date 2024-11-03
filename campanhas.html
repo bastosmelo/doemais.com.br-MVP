@@ -12,6 +12,34 @@
         <h1>Cadastro de Campanhas</h1>
         <button class="home-button" onclick="voltarHome()">Home</button> <!-- Botão Home -->
     </header>
+    <section class="list-section">
+        <h2>Campanhas Cadastradas</h2>
+        <p><h3>Veja as Campanhas vigentes e contribua!</p></h3>
+        <ul id="listaCampanhas"></ul> <!-- Lista de campanhas -->
+    </section>
+
+         <!-- Exemplo de uma instituição cadastrada -->
+         <table id="tabela" class="table">
+            <tbody>
+                <tr>
+                    <td>
+                        <h3>Campanha do Agasalho</h3>
+                        <p>Instituições beneficiadas: Instituição ABC, Instituição XYZ</p>
+                        <p>Descrição: Doação de roupas e agasalhos</p>
+                    </td>
+                    <td>
+                        <h3>Campanha do Alimento</h3>
+                        <p>Instituições beneficiadas: Instituição ABC, Instituição XYZ</p>
+                        <p>Descrição: Doação de alimentos não perecíveis</p>
+                    </td>
+                    <td>
+                        <h3>Campanha da Água</h3>
+                        <p>Instituições beneficiadas: Instituição ABC, Instituição XYZ</p>
+                        <p>Descrição: Doação de água mineral para regiões afetadas com a falta de água.</p>
+                    </td>
+            </tbody>
+        </table>
+
     <section class="form-section">
         <form id="campanhaForm">
             <label for="nomeCampanha">Nome da Campanha:</label>
@@ -28,11 +56,6 @@
             
             <button type="submit">Cadastrar Campanha</button>
         </form>
-    </section>
-    
-    <section class="list-section">
-        <h2>Campanhas Cadastradas</h2>
-        <ul id="listaCampanhas"></ul> <!-- Lista de campanhas -->
     </section>
 </body>
 </html>
