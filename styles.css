@@ -7,20 +7,24 @@ body {
     color: white;
 }
 
-/* Cabeçalho */
+/* Estiliza o cabeçalho com flexbox */
 header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: space-between; /* Espaço entre a logo e os botões */
+    align-items: center; /* Centraliza verticalmente os itens */
     height: 50px;
     padding: 20px;
-    background-color: #426544;
+    background-color: #426544; /* Cor de fundo para o cabeçalho */
 }
 
 .logo img {
-    height: 300px;
+    width: 300px; /* Defina o tamanho da logo conforme necessário */
 }
 
+.header-right {
+    display: flex; /* Para alinhar os botões "logado" e "logout" lado a lado */
+    align-items: center;
+}
 
 .login {
     padding: 5px;
@@ -29,6 +33,31 @@ header {
     border-radius: 5px;
     color: white;
     cursor: pointer;
+}
+
+.home-button:hover {
+    background-color: #69996c;
+}
+
+.logado, .logout {
+    margin-left: 5px; /* Espaço entre os botões */
+}
+
+button.logado, button.logout {
+    background-color: #426544;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 5px;
+    cursor: pointer;
+}
+
+button.logado img, button.logout img {
+    margin-left: 5px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid #333;
 }
 
 /* Carrossel */
@@ -194,4 +223,10 @@ form button {
     border: 1px solid #333;
     margin: 0 5px;
   }
+
+  .social-icons a {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
   
