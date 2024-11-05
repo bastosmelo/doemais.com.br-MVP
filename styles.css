@@ -102,11 +102,16 @@ button.logado img, , button.logout img {
 .about-section {
     text-align: justify;
     color: white;
+    padding: 20px; /* Adiciona espaçamento interno nas laterais */
+    max-width: 1000px; /* Define uma largura máxima para limitar o texto */
+    margin: 0 auto; /* Centraliza a seção no meio da página */
 }
 
+/* Ajuste do tamanho da imagem na seção sobre */
 .about-section img {
     width: 20%;
-    justify-content: center;
+    display: block;
+    margin: 20px auto; /* Centraliza a imagem horizontalmente e adiciona margem vertical */
 }
 
 /* Rodapé */
@@ -115,8 +120,6 @@ footer {
     padding: 2px;
     text-align: center;
 }
-
-
 
 /* Formulários */
 .form-section {
