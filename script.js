@@ -98,35 +98,46 @@ function voltarHome() {
 
 
 // Função do Cadastramento das Instituições, Doadores e Campanhas
-document.addEventListener("DOMContentLoaded", function() {
-    const pessoaFisicaRadio = document.getElementById("pessoaFisica");
-    const pessoaJuridicaRadio = document.getElementById("pessoaJuridica");
-    const cpfField = document.getElementById("cpfField");
-    const cnpjField = document.getElementById("cnpjField");
-    const campanhaField = document.getElementById("campanhaField");
+document.addEventListener('DOMContentLoaded', function() {
+    const pessoaFisicaRadio = document.getElementById('pessoaFisica');
+    const pessoaJuridicaRadio = document.getElementById('pessoaJuridica');
+    const formFisica = document.getElementById('formFisica');
+    const formJuridica = document.getElementById('formJuridica');
 
-    // Verifica se o tipo de pessoa é física ou jurídica e mostra o campo correspondente
-    pessoaFisicaRadio.addEventListener("change", function() {
-        if (pessoaFisicaRadio.checked) {
-            cpfField.style.display = "block";
-            cnpjField.style.display = "none";
-            campanhaField.style.display = "none"; // Esconde o campo de CNPJ para campanhas
+    pessoaFisicaRadio.addEventListener('change', function() {
+        if (this.checked) {
+            formFisica.style.display = 'block';
+            formJuridica.style.display = 'none';
         }
     });
 
-    pessoaJuridicaRadio.addEventListener("change", function() {
-        if (pessoaJuridicaRadio.checked) {
-            cpfField.style.display = "none";
-            cnpjField.style.display = "block";
-            campanhaField.style.display = "none"; // Esconde o campo de CNPJ para campanhas
+    pessoaJuridicaRadio.addEventListener('change', function() {
+        if (this.checked) {
+            formFisica.style.display = 'none';
+            formJuridica.style.display = 'block';
         }
     });
 
-    // Caso seja cadastro de uma campanha, exibe o campo para selecionar uma instituição
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.has('campanha')) {
-        campanhaField.style.display = "block";
-        cpfField.style.display = "none";
-        cnpjField.style.display = "none";
-    }
+    // Máscara de CPF e CNPJ usando input masks
+    const cpfInput = document.getElementById('cpf');
+    const cnpjInput = document.getElementById('cnpj');
+
+    cpfInput.addEventListener('input', function() {
+        let cpf = cpfInput.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+        if (cpf.length > 11) cpf = cpf.slice(0, 11); // Limita a 11 dígitos
+        cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2')
+                 .replace(/(\d{3})(\d)/, '$1.$2')
+                 .replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+        cpfInput.value = cpf;
+    });
+
+    cnpjInput.addEventListener('input', function() {
+        let cnpj = cnpjInput.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+        if (cnpj.length > 14) cnpj = cnpj.slice(0, 14); // Limita a 14 dígitos
+        cnpj = cnpj.replace(/(\d{2})(\d)/, '$1.$2')
+                   .replace(/(\d{3})(\d)/, '$1.$2')
+                   .replace(/(\d{3})(\d)/, '$1/$2')
+                   .replace(/(\d{4})(\d{1,2})$/, '$1-$2');
+        cnpjInput.value = cnpj;
+    });
 });

@@ -14,9 +14,9 @@
             <img src="Imagens/Logo-Doe.App.png" alt="Logo Doe.App">
         </div>
         <div class="home">
-                <button class="home">
-                    <a class="home" href="index.html">Home</a>
-                </button>
+            <button class="home">
+                <a class="home" href="index.html">Home</a>
+            </button>
         </div>
     </header>
 
@@ -24,30 +24,6 @@
     <div class="register-container">
         <h2>Cadastro</h2>
         <form action="/register" method="post">
-            <!-- Nome Completo -->
-            <div class="input-group">
-                <label for="name">Nome Completo</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-
-            <!-- Email -->
-            <div class="input-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-
-            <!-- Senha -->
-            <div class="input-group">
-                <label for="password">Senha</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-
-            <!-- Confirmação de Senha -->
-            <div class="input-group">
-                <label for="confirm_password">Confirme a Senha</label>
-                <input type="password" id="confirm_password" name="confirm_password" required>
-            </div>
-
             <!-- Checklist para verificar se é Pessoa Física ou Jurídica -->
             <div class="input-group">
                 <label>Tipo de Pessoa:</label>
@@ -58,24 +34,56 @@
                 <label for="pessoaJuridica">Pessoa Jurídica</label>
             </div>
 
-            <!-- Campo para CPF ou CNPJ, que será exibido dinamicamente conforme o tipo selecionado -->
-            <div class="input-group" id="cpfField" style="display: none;">
-                <label for="cpf">CPF</label>
-                <input type="text" id="cpf" name="cpf">
+            <!-- Campos para Pessoa Física -->
+            <div id="formFisica" style="display: none;">
+                <div class="input-group">
+                    <label for="cpf">CPF</label>
+                    <input type="text" id="cpf" name="cpf" maxlength="14">
+                </div>
+                <div class="input-group">
+                    <label for="nameFisica">Nome Completo</label>
+                    <input type="text" id="nameFisica" name="nameFisica">
+                </div>
+                <div class="input-group">
+                    <label for="enderecoFisica">Endereço</label>
+                    <input type="text" id="enderecoFisica" name="enderecoFisica">
+                </div>
+                <div class="input-group">
+                    <label for="telefoneFisica">Telefone de Contato</label>
+                    <input type="tel" id="telefoneFisica" name="telefoneFisica">
+                </div>
+                <div class="input-group">
+                    <label for="doacaoFisica">O que deseja doar?</label>
+                    <input type="text" id="doacaoFisica" name="doacaoFisica">
+                </div>
             </div>
 
-            <div class="input-group" id="cnpjField" style="display: none;">
-                <label for="cnpj">CNPJ</label>
-                <input type="text" id="cnpj" name="cnpj">
-            </div>
-
-            <!-- Caso seja o cadastro de uma campanha, exibir CNPJ da Instituição associada -->
-            <div class="input-group" id="campanhaField" style="display: none;">
-                <label for="instituicaoCNPJ">CNPJ da Instituição</label>
-                <select id="instituicaoCNPJ" name="instituicaoCNPJ">
-                    <option value="">Selecione uma Instituição</option>
-                    <!-- Aqui seriam preenchidos dinamicamente com CNPJs das instituições cadastradas -->
-                </select>
+            <!-- Campos para Pessoa Jurídica -->
+            <div id="formJuridica" style="display: none;">
+                <div class="input-group">
+                    <label for="cnpj">CNPJ</label>
+                    <input type="text" id="cnpj" name="cnpj" maxlength="18">
+                </div>
+                <div class="input-group">
+                    <label for="nameJuridica">Nome da Empresa</label>
+                    <input type="text" id="nameJuridica" name="nameJuridica">
+                </div>
+                <div class="input-group">
+                    <label for="enderecoJuridica">Endereço</label>
+                    <input type="text" id="enderecoJuridica" name="enderecoJuridica">
+                </div>
+                <div class="input-group">
+                    <label for="contatoJuridica">Pessoa para Contato</label>
+                    <input type="text" id="contatoJuridica" name="contatoJuridica">
+                </div>
+                <div class="input-group">
+                    <label for="telefoneJuridica">Telefone de Contato</label>
+                    <input type="tel" id="telefoneJuridica" name="telefoneJuridica">
+                </div>
+                <div class="input-group">
+                    <label for="doacaoJuridica">O que deseja doar?</label>
+                    <input type="text" id="doacaoJuridica" name="doacaoJuridica">
+                </div>
             </div>
 
             <button type="submit">Cadastrar</button>

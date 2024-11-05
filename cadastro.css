@@ -69,6 +69,7 @@ h2 {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    text-align: center; /* Centraliza o texto dentro do input */
 }
 
 button[type="submit"] {
