@@ -7,7 +7,7 @@ body {
     color: white;
 }
 
-/* Estiliza o cabeçalho com flexbox */
+/* Cabeçalho */
 header {
     display: flex;
     justify-content: space-between; /* Espaço entre a logo e os botões */
@@ -39,11 +39,11 @@ header {
     background-color: #69996c;
 }
 
-.logado, .logout {
-    margin-left: 5px; /* Espaço entre os botões */
-}
-
+/* Flexbox para centralizar o conteúdo do botão */
 button.logado, button.logout {
+    display: flex;
+    align-items: center; /* Alinha verticalmente */
+    justify-content: center; /* Alinha horizontalmente */
     background-color: #426544;
     border: none;
     border-radius: 5px;
@@ -52,8 +52,9 @@ button.logado, button.logout {
     cursor: pointer;
 }
 
-button.logado img, button.logout img {
-    margin-left: 5px;
+/* Remove a margem lateral entre o nome e a imagem */
+button.logado img, , button.logout img {
+    margin-left: 10px; /* Espaço entre o nome e a imagem */
     width: 30px;
     height: 30px;
     border-radius: 50%;
