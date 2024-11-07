@@ -1,3 +1,100 @@
+/* Para dispositivos de largura média como tablets (768px a 1024px) */
+@media screen and (max-width: 1024px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+    }
+
+    .logo img {
+        width: 200px; /* Reduzir tamanho da logo para tablets */
+    }
+
+    .header-right {
+        flex-direction: column; /* Coloca os botões logado e logout um abaixo do outro */
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .carousel {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .carousel-item {
+        flex: 0 0 80%;
+        margin-bottom: 20px;
+    }
+
+    .about-section img {
+        width: 30%; /* Ajustar a imagem da seção sobre */
+    }
+
+    form {
+        width: 80%; /* Aumenta a largura do formulário */
+    }
+
+    .list-section {
+        padding: 10px;
+        margin: 20px;
+    }
+}
+
+/* Para dispositivos móveis (até 768px) */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 90%;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        padding: 10px;
+    }
+
+    .logo img {
+        width: 150px; /* Reduzir ainda mais a logo para celular */
+    }
+
+    .header-right {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .carousel {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .carousel-item {
+        flex: 0 0 100%; /* Itens do carrossel ocupam 100% da largura da tela */
+        margin-bottom: 20px;
+    }
+
+    .about-section {
+        padding: 10px;
+    }
+
+    .about-section img {
+        width: 40%; /* Ajusta a largura da imagem na seção sobre */
+    }
+
+    form {
+        width: 100%; /* O formulário ocupa 100% da largura */
+    }
+
+    .list-section {
+        padding: 10px;
+        margin: 10px;
+    }
+
+    footer {
+        font-size: 0.8rem;
+    }
+}
+
+
 /* Estilos gerais */
 body {
     font-family: Arial, sans-serif;
