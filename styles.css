@@ -31,15 +31,6 @@ header {
     align-items: center;
 }
 
-.login {
-    padding: 5px;
-    background-color:  #69996c;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-}
-
 button.logado, button.logout {
     display: flex;
     align-items: center;
@@ -204,5 +195,7 @@ footer a {
     }
 
     footer {
-        font-size: 0.7rem
+        font-size: 0.7rem;
+        padding: 10px;
     }
+}
