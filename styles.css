@@ -1,151 +1,33 @@
-/* Para dispositivos de largura média como tablets (768px a 1024px) */
-@media screen and (max-width: 1024px) {
-    header {
-        flex-direction: column;
-        align-items: center;
-        height: auto;
-    }
-
-    .logo img {
-        width: 200px; /* Reduzir tamanho da logo para tablets */
-    }
-
-    .header-right {
-        flex-direction: column; /* Coloca os botões logado e logout um abaixo do outro */
-        align-items: center;
-        margin-top: 10px;
-    }
-    
-    .login {
-        padding: 5px;
-        background-color:  #69996c;
-        border: none;
-        border-radius: 5px;
-        color: white;
-        cursor: pointer;
-    }
-    
-    .home-button:hover {
-        background-color: #69996c;
-    }
-
-    .carousel {
-        flex-direction: column;
-        padding: 10px;
-    }
-
-    .carousel-item {
-        flex: 0 0 80%;
-        margin-bottom: 20px;
-    }
-
-    .about-section img {
-        width: 30%; /* Ajustar a imagem da seção sobre */
-    }
-
-    form {
-        width: 80%; /* Aumenta a largura do formulário */
-    }
-
-    .list-section {
-        padding: 10px;
-        margin: 20px;
-    }
-}
-
-/* Para dispositivos móveis (até 768px) */
-@media screen and (max-width: 768px) {
-    body {
-        font-size: 90%;
-    }
-
-    header {
-        flex-direction: column;
-        align-items: center;
-        height: auto;
-        padding: 10px;
-    }
-
-    .logo img {
-        width: 150px; /* Reduzir ainda mais a logo para celular */
-    }
-
-    .header-right {
-        flex-direction: row;
-        justify-content: center;
-    }
-
-    .login {
-        padding: 5px;
-        background-color:  #69996c;
-        border: none;
-        border-radius: 5px;
-        color: white;
-        cursor: pointer;
-    }
-    
-    .home-button:hover {
-        background-color: #69996c;
-    }
-
-    .carousel {
-        flex-direction: column;
-        padding: 10px;
-    }
-
-    .carousel-item {
-        flex: 0 0 100%; /* Itens do carrossel ocupam 100% da largura da tela */
-        margin-bottom: 20px;
-    }
-
-    .about-section {
-        padding: 10px;
-    }
-
-    .about-section img {
-        width: 40%; /* Ajusta a largura da imagem na seção sobre */
-    }
-
-    form {
-        width: 100%; /* O formulário ocupa 100% da largura */
-    }
-
-    .list-section {
-        padding: 10px;
-        margin: 10px;
-    }
-
-    footer {
-        font-size: 0.8rem;
-    }
-}
-
-
 /* Estilos gerais */
 body {
     font-family: Arial, sans-serif;
-    background-color:  #69996c; /* Verde balanceado */
+    background-color: #69996c; /* Verde balanceado */
     margin: 0;
     padding: 0;
     color: white;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 /* Cabeçalho */
 header {
     display: flex;
-    justify-content: space-between; /* Espaço entre a logo e os botões */
-    align-items: center; /* Centraliza verticalmente os itens */
+    justify-content: space-between;
+    align-items: center;
     height: 50px;
     padding: 20px;
     background-color: #426544; /* Cor de fundo para o cabeçalho */
 }
 
 .logo img {
-    width: 300px; /* Defina o tamanho da logo conforme necessário */
+    width: 300px;
 }
 
 .header-right {
-    display: flex; /* Para alinhar os botões "logado" e "logout" lado a lado */
+    display: flex;
     align-items: center;
 }
 
@@ -158,15 +40,10 @@ header {
     cursor: pointer;
 }
 
-.home-button:hover {
-    background-color: #69996c;
-}
-
-/* Flexbox para centralizar o conteúdo do botão */
 button.logado, button.logout {
     display: flex;
-    align-items: center; /* Alinha verticalmente */
-    justify-content: center; /* Alinha horizontalmente */
+    align-items: center;
+    justify-content: center;
     background-color: #426544;
     border: none;
     border-radius: 5px;
@@ -175,9 +52,8 @@ button.logado, button.logout {
     cursor: pointer;
 }
 
-/* Remove a margem lateral entre o nome e a imagem */
 button.logado img, button.logout img {
-    margin-left: 10px; /* Espaço entre o nome e a imagem */
+    margin-left: 10px;
     width: 30px;
     height: 30px;
     border-radius: 50%;
@@ -191,6 +67,7 @@ button.logado img, button.logout img {
     padding: 20px;
     gap: 20px;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .carousel-item {
@@ -208,7 +85,7 @@ button.logado img, button.logout img {
     border-radius: 10px;
 }
 
-.carousel-item:hover{
+.carousel-item:hover {
     transform: scale(1.05);
 }
 
@@ -225,135 +102,107 @@ button.logado img, button.logout img {
 .about-section {
     text-align: justify;
     color: white;
-    padding: 20px; /* Adiciona espaçamento interno nas laterais */
-    max-width: 1000px; /* Define uma largura máxima para limitar o texto */
-    margin: 0 auto; /* Centraliza a seção no meio da página */
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-/* Ajuste do tamanho da imagem na seção sobre */
 .about-section img {
     width: 20%;
     display: block;
-    margin: 20px auto; /* Centraliza a imagem horizontalmente e adiciona margem vertical */
+    margin: 20px auto;
 }
 
 /* Rodapé */
 footer {
     background-color: #426544;
-    padding: 2px;
-    text-align: center;
-}
-
-/* Formulários */
-.form-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 80vh;
-    background-color: #69996c;
-}
-
-form {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    width: 300px;
-
-}
-
-form label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-form input, form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-}
-
-form button {
-    width: 100%;
-    padding: 10px;
-    background-color: #69996c;
-    border: none;
-    color: white;
-    border-radius: 10px;
-    cursor: pointer;
-}
-
-/* Tabela das Instituições cadastradas */
-.table {
-    text-align: center;
-    width: 100%;
-    border-width: 8px; /* utilizada para definir o tamanho da borda */
-    border-style: groove; /* utilizada para definir o estilo da borda */
-    border-color: #426544; /* utilizada para definir a cor da borda */
-    border-radius: 10px;
-}
-
-/* Botão Home */
-.home-button {
-    padding: 10px 20px;
-    background-color: #69996c;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-left: 20px;
-}
-.home-button:hover {
-    background-color: #69996c;
-}
-
-
-/* Seção de listas */
-.list-section {
-    margin: 40px;
     padding: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-size: 1rem;
 }
 
-.list-section h2 {
-    color: #69996c;
+footer .contato {
+    margin-top: 10px;
 }
 
-.list-section h3 {
-    color: #69996c;
+footer a {
+    color: white;
+    text-decoration: none;
 }
 
-.list-section ul {
-    list-style-type: none;
-    padding: 0;
+/* Media Queries */
+@media screen and (max-width: 1024px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo img {
+        width: 200px;
+    }
+
+    .header-right {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .carousel-item {
+        flex: 0 0 80%;
+        margin-bottom: 20px;
+    }
+
+    .about-section img {
+        width: 30%;
+    }
+
+    footer {
+        font-size: 0.9rem;
+    }
 }
 
-.list-section ul li {
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .logo img {
+        width: 150px;
+    }
+
+    .carousel-item {
+        flex: 0 0 100%;
+    }
+
+    .about-section img {
+        width: 40%;
+    }
+
+    footer {
+        font-size: 0.8rem;
+        padding: 10px;
+    }
 }
 
-.list-section ul li:last-child {
-    border-bottom: none;
-}
+@media screen and (max-width: 480px) {
+    header {
+        flex-direction: column;
+        padding: 10px;
+    }
 
-/* Links - Redes Sociais */
-.social-links {
-    margin-bottom: 10px;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: 1px solid #333;
-    margin: 0 5px;
-  }
+    .logo img {
+        width: 100px;
+    }
 
-  .social-icons a {
-    display: block;
-    margin: 0;
-    padding: 0;
-}
-  
+    .carousel-item {
+        width: 100%;
+    }
+
+    .about-section img {
+        width: 50%;
+    }
+
+    footer {
+        font-size: 0.7rem
+    }

@@ -8,93 +8,86 @@
     <script src="script.js" defer></script>
 </head>
 <body>
-<!-- Cabeçalho -->
-<header>
-    <div class="logo">
-        <img src="Imagens/Logo-Doe.App.png" alt="Logo Doe.App">
-    </div>
-    <div class="header-right">
-        <div class="logado">
-            <button class="logado">Fulano
-                <a class="logado" href="Link para perfil pessoal">
+    <!-- Cabeçalho -->
+    <header>
+        <div class="logo">
+            <img src="Imagens/Logo-Doe.App.png" alt="Logo Doe.App">
+        </div>
+        <div class="header-right">
+            <div class="logado">
+                <button class="logado" onclick="window.location.href='perfil.html'">Fulano
                     <img src="Imagens/Logado.jpg" alt="Logado" class="social-links">
-                </a>
-            </button>
-        </div>
-        <div class="logout">
-            <button class="logout">
-                <a class="logout" href="index.html">
+                </button>
+            </div>
+            <div class="logout">
+                <button class="logout" onclick="window.location.href='index.html'">
                     <img src="Imagens/Logout.jpg" alt="Logout" class="social-links">
-                </a>
-            </button>
+                </button>
+            </div>
         </div>
-    </div>
-</header>
+    </header>
 
-<!-- Carrossel de Campanhas -->
-<section class="carousel">
-      <div class="carousel-item">
-        <h2>Campanha do Agasalho</h2>
-        <a href="campanhas.html">
-        <img src="Imagens/Campanha do Agasalho.jpg" alt="Campanhas"></a>
-        <p>Doação de roupas para quem precisa.</p>
-      </div>
-      <div class="carousel-item">
-        <h2>Campanha do Alimento</h2>
-        <a href="campanhas.html">
-        <img src="Imagens/Campanha do Alimento.jpg" alt="Campanhas"></a>
-        <p>Ajude com doações de alimentos.</p>
-      </div>
-      <div class="carousel-item">
-        <h2>Campanha da Água</h2>
-        <a href="campanhas.html">
-        <img src="Imagens/Campanha da Água.jpg" alt="Campanhas"></a>
-        <p>Doação de água mineral para regiões em necessidade.</p>
-      </div>
-</section>
-    <div id="about" class="about-section">
-      <img src="Imagens/Logo-Doe.App.png"> 
-    </div>
-    <!-- Carrossel -->
+    <!-- Carrossel de Campanhas -->
     <section class="carousel">
-      <div class="carousel-item" id="instituicoes">
-          <img src="Imagens/Instituições.png" alt="Instituições">
-          <h2>Instituições</h2>
-          <p>Conheça as instituições que precisam da sua doação.</p>
-          <button onclick="abrirInstituicoes()">Ver Instituições</button>
-      </div>
-      <div class="carousel-item" id="doadores">
-          <img src="Imagens/Doadores.png" alt="Doadores">
-          <h2>Doadores</h2>
-          <p>Cadastre-se como doador e ajude quem precisa.</p>
-          <button onclick="abrirDoadores()">Seja um Doador</button>
-      </div>
-      <div class="carousel-item" id="campanhas">
-          <img src="Imagens/Campanhas.jpeg" alt="Campanhas">
-          <h2>Campanhas</h2>
-          <p>Veja as campanhas ativas e faça sua parte.</p>
-          <button onclick="abrirCampanhas()">Ver Campanhas</button>
-      </div>
-  </section>
+        <div class="carousel-item">
+            <h2>Campanha do Agasalho</h2>
+            <a href="campanhas.html">
+            <img src="Imagens/Campanha do Agasalho.jpg" alt="Campanhas"></a>
+            <p>Doação de roupas para quem precisa.</p>
+        </div>
+        <div class="carousel-item">
+            <h2>Campanha do Alimento</h2>
+            <a href="campanhas.html">
+            <img src="Imagens/Campanha do Alimento.jpg" alt="Campanhas"></a>
+            <p>Ajude com doações de alimentos.</p>
+        </div>
+        <div class="carousel-item">
+            <h2>Campanha da Água</h2>
+            <a href="campanhas.html">
+            <img src="Imagens/Campanha da Água.jpg" alt="Campanhas"></a>
+            <p>Doação de água mineral para regiões em necessidade.</p>
+        </div>
+    </section>
 
-  <!-- Seção Sobre -->
-  <section id="about" class="about-section">
-    <img src="Imagens/Logo-Doe.App.png">
-    <h3><p>O Doe.App é uma plataforma digital inovadora que conecta pessoas e empresas dispostas a ajudar a quem mais precisa por meio de campanhas de doações. Focada em promover a solidariedade, a plataforma facilita a conexão entre doadores — sejam pessoas físicas ou jurídicas — e instituições beneficentes de diversas áreas, como combate à fome, apoio a crianças, idosos, e iniciativas ambientais.</p>
-    <p>Funcionalidades:</p>
-    <p>Visualização de Campanhas de Doação: No Doe.App, é possível explorar uma lista de campanhas ativas criadas para arrecadar alimentos, roupas, recursos financeiros, entre outros itens. Cada campanha detalha o objetivo, a quantidade de doações já recebida e o prazo para contribuir. Isso permite que doadores escolham onde querem colaborar de acordo com suas causas de interesse.</p>
-    <p>Instituições Beneficiadas: O site disponibiliza uma lista de instituições que serão diretamente beneficiadas pelas campanhas. As organizações são verificadas e categorizadas por área de atuação, garantindo que as doações cheguem às mãos certas. Além disso, cada instituição tem um perfil com informações sobre sua missão, projetos em andamento e impacto gerado.</p> 
-    <p>Doadores: A plataforma valoriza a transparência e a criação de uma rede de apoio. Por isso, também oferece uma lista de doadores dispostos a ajudar, com a opção de cada um decidir se deseja aparecer publicamente ou manter o anonimato. Empresas podem se destacar como patrocinadoras de grandes campanhas, enquanto indivíduos podem contribuir de forma recorrente ou pontual.</p>  
-    <p>O Doe.App visa criar uma experiência intuitiva, onde a solidariedade se torna prática e acessível. Com o compromisso de facilitar o processo de doação e garantir que todas as partes envolvidas tenham a visibilidade e o suporte necessários, a plataforma fortalece o laço entre quem deseja doar e quem precisa receber.</p></h3>
-  </section>
+    <!-- Carrossel de Informações -->
+    <section class="carousel">
+        <div class="carousel-item" id="instituicoes">
+            <img src="Imagens/Instituições.png" alt="Instituições">
+            <h2>Instituições</h2>
+            <p>Conheça as instituições que precisam da sua doação.</p>
+            <button onclick="abrirInstituicoes()">Ver Instituições</button>
+        </div>
+        <div class="carousel-item" id="doadores">
+            <img src="Imagens/Doadores.png" alt="Doadores">
+            <h2>Doadores</h2>
+            <p>Cadastre-se como doador e ajude quem precisa.</p>
+            <button onclick="abrirDoadores()">Seja um Doador</button>
+        </div>
+        <div class="carousel-item" id="campanhas">
+            <img src="Imagens/Campanhas.jpeg" alt="Campanhas">
+            <h2>Campanhas</h2>
+            <p>Veja as campanhas ativas e faça sua parte.</p>
+            <button onclick="abrirCampanhas()">Ver Campanhas</button>
+        </div>
+    </section>
 
-  <!-- Rodapé -->
-<footer>
-    <a href="squad11.html">Squad 11 © 2024. Todos os direitos reservados.</a>
-    <div class="contato">
-      <p>Endereço: Av. Murilo Dantas, 300 - Farolândia, Aracaju - SE, CEP: 49.032-490</p>
-      <p>E-mail: contato@doeapp.com</p>
-    </div>
-  </footer>
+    <!-- Seção Sobre -->
+    <section id="sobre" class="about-section">
+        <img src="Imagens/Logo-Doe.App.png" alt="Logo Doe.App">
+        <h3>O Doe.App é uma plataforma digital inovadora que conecta pessoas e empresas dispostas a ajudar a quem mais precisa por meio de campanhas de doações. Focada em promover a solidariedade, a plataforma facilita a conexão entre doadores — sejam pessoas físicas ou jurídicas — e instituições beneficentes de diversas áreas, como combate à fome, apoio a crianças, idosos, e iniciativas ambientais.</h3>
+        <h4>Funcionalidades:</h4>
+        <p>Visualização de Campanhas de Doação: No Doe.App, é possível explorar uma lista de campanhas ativas criadas para arrecadar alimentos, roupas, recursos financeiros, entre outros itens.</p>
+        <p>Instituições Beneficiadas: O site disponibiliza uma lista de instituições que serão diretamente beneficiadas pelas campanhas.</p>
+        <p>Doadores: A plataforma valoriza a transparência e a criação de uma rede de apoio, oferecendo uma lista de doadores dispostos a ajudar, com a opção de anonimato.</p>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <a href="squad11.html">Squad 11 © 2024. Todos os direitos reservados.</a>
+        <div class="contato">
+            <p>Endereço: Av. Murilo Dantas, 300 - Farolândia, Aracaju - SE, CEP: 49.032-490</p>
+            <p>E-mail: contato@doeapp.com</p>
+        </div>
+    </footer>
 </body>
 </html>
