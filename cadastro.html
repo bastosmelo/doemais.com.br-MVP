@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doe.App - Cadastro</title>
     <link rel="stylesheet" href="cadastro.css">
-    <script src="script.js" defer></script> <!-- JavaScript para manipular o checklist -->
+    <script src="script.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script> <!-- Máscara para o CNPJ -->
 </head>
 <body>
     <!-- Cabeçalho -->
@@ -29,7 +30,7 @@
                 <label>Tipo de Pessoa:</label>
                 <input type="radio" id="pessoaFisica" name="tipoPessoa" value="fisica" required>
                 <label for="pessoaFisica">Pessoa Física</label>
-                
+               
                 <input type="radio" id="pessoaJuridica" name="tipoPessoa" value="juridica" required>
                 <label for="pessoaJuridica">Pessoa Jurídica</label>
             </div>
@@ -44,17 +45,31 @@
                     <label for="nameFisica">Nome Completo</label>
                     <input type="text" id="nameFisica" name="nameFisica">
                 </div>
+
+                <!-- Endereço com campos separados para Pessoa Física -->
                 <div class="input-group">
-                    <label for="enderecoFisica">Endereço</label>
-                    <input type="text" id="enderecoFisica" name="enderecoFisica">
+                    <label for="enderecoFisica">Endereço:</label>
+                    <input type="text" id="enderecoFisica" name="enderecoFisica" placeholder="Rua, Avenida, etc." required>
                 </div>
                 <div class="input-group">
-                    <label for="telefoneFisica">Telefone de Contato</label>
-                    <input type="tel" id="telefoneFisica" name="telefoneFisica">
+                    <label for="numeroFisica">Número:</label>
+                    <input type="text" id="numeroFisica" name="numeroFisica" required>
                 </div>
                 <div class="input-group">
-                    <label for="doacaoFisica">O que deseja doar?</label>
-                    <input type="text" id="doacaoFisica" name="doacaoFisica">
+                    <label for="complementoFisica">Complemento:</label>
+                    <input type="text" id="complementoFisica" name="complementoFisica">
+                </div>
+                <div class="input-group">
+                    <label for="bairroFisica">Bairro:</label>
+                    <input type="text" id="bairroFisica" name="bairroFisica" required>
+                </div>
+                <div class="input-group">
+                    <label for="cidadeFisica">Cidade:</label>
+                    <input type="text" id="cidadeFisica" name="cidadeFisica" required>
+                </div>
+                <div class="input-group">
+                    <label for="estadoFisica">Estado:</label>
+                    <input type="text" id="estadoFisica" name="estadoFisica" required>
                 </div>
             </div>
 
@@ -68,27 +83,44 @@
                     <label for="nameJuridica">Nome da Empresa</label>
                     <input type="text" id="nameJuridica" name="nameJuridica">
                 </div>
+
+                <!-- Endereço com campos separados para Pessoa Jurídica -->
                 <div class="input-group">
-                    <label for="enderecoJuridica">Endereço</label>
-                    <input type="text" id="enderecoJuridica" name="enderecoJuridica">
+                    <label for="enderecoJuridica">Endereço:</label>
+                    <input type="text" id="enderecoJuridica" name="enderecoJuridica" placeholder="Rua, Avenida, etc." required>
                 </div>
                 <div class="input-group">
-                    <label for="contatoJuridica">Pessoa para Contato</label>
-                    <input type="text" id="contatoJuridica" name="contatoJuridica">
+                    <label for="numeroJuridica">Número:</label>
+                    <input type="text" id="numeroJuridica" name="numeroJuridica" required>
                 </div>
                 <div class="input-group">
-                    <label for="telefoneJuridica">Telefone de Contato</label>
-                    <input type="tel" id="telefoneJuridica" name="telefoneJuridica">
+                    <label for="complementoJuridica">Complemento:</label>
+                    <input type="text" id="complementoJuridica" name="complementoJuridica">
                 </div>
                 <div class="input-group">
-                    <label for="doacaoJuridica">O que deseja doar?</label>
-                    <input type="text" id="doacaoJuridica" name="doacaoJuridica">
+                    <label for="bairroJuridica">Bairro:</label>
+                    <input type="text" id="bairroJuridica" name="bairroJuridica" required>
+                </div>
+                <div class="input-group">
+                    <label for="cidadeJuridica">Cidade:</label>
+                    <input type="text" id="cidadeJuridica" name="cidadeJuridica" required>
+                </div>
+                <div class="input-group">
+                    <label for="estadoJuridica">Estado:</label>
+                    <input type="text" id="estadoJuridica" name="estadoJuridica" required>
                 </div>
             </div>
 
-            <button type="submit">Cadastrar</button>
+            <button type="submit" style="background-color: #426544;">Cadastrar</button>
             <p class="login-link">Já tem uma conta? <a href="login.html">Entrar</a></p>
         </form>
     </div>
+
+    <script>
+        // Máscara para o CNPJ
+        $(document).ready(function(){
+            $("#cnpj").mask("99.999.999/9999-99");
+        });
+    </script>
 </body>
 </html>

@@ -6,6 +6,9 @@
     <title>Doe.App - Instituições</title>
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script> <!-- Máscara para o CNPJ -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 </head>
 <body onload="carregarInstituicoes()">
     <header>
@@ -19,29 +22,68 @@
         <ul id="listaInstituicoes"></ul> <!-- Lista de instituições -->
     </section>
 
-    <!-- Exemplo de uma instituição cadastrada, será carregado dinamicamente -->
     <section id="instituicoesCadastradas" class="institutions-section"></section>
 
     <section class="form-section">
-        <h2>Cadastre uma nova Instituição</h2>
+        <h2>Cadastre sua Instituição</h2>
         <form id="instituicaoForm" onsubmit="cadastrarInstituicao(event)">
-            <label for="nomeInstituicao">Nome da Instituição:</label>
-            <input type="text" id="nomeInstituicao" name="nomeInstituicao" required>
-           
-            <label for="cnpj">CNPJ:</label>
-            <input type="text" id="cnpj" name="cnpj" required>
-           
-            <label for="emailInstituicao">Email:</label>
-            <input type="email" id="emailInstituicao" name="emailInstituicao" required>
-           
-            <label for="telefoneInstituicao">Telefone:</label>
-            <input type="tel" id="telefoneInstituicao" name="telefoneInstituicao" required>
-           
-            <label for="enderecoInstituicao">Endereço:</label>
-            <textarea id="enderecoInstituicao" name="enderecoInstituicao" required></textarea>
-           
-            <button type="submit">Cadastrar Instituição</button>
+            <!-- Campos para Pessoa Jurídica -->
+            <div id="formJuridica">
+                <label for="nameJuridica">Nome da Instituição</label>
+                <input type="text" id="nameJuridica" name="nameJuridica" required>
+
+                <label for="cnpj">CNPJ</label>
+                <input type="text" id="cnpj" name="cnpj" maxlength="18">
+
+                <!-- Endereço com campos separados para Pessoa Jurídica -->
+                <label for="enderecoJuridica">Endereço:</label>
+                <input type="text" id="enderecoJuridica" name="enderecoJuridica" placeholder="Rua, Avenida, etc." required>
+
+                <label for="numeroJuridica">Número:</label>
+                <input type="text" id="numeroJuridica" name="numeroJuridica" required>
+
+                <label for="complementoJuridica">Complemento:</label>
+                <input type="text" id="complementoJuridica" name="complementoJuridica">
+
+                <label for="bairroJuridica">Bairro:</label>
+                <input type="text" id="bairroJuridica" name="bairroJuridica" required>
+
+                <label for="cidadeJuridica">Cidade:</label>
+                <input type="text" id="cidadeJuridica" name="cidadeJuridica" required>
+
+                <label for="estadoJuridica">Estado:</label>
+                <input type="text" id="estadoJuridica" name="estadoJuridica" required>
+
+                <label for="emailInstituicao">Email:</label>
+                <input type="email" id="emailInstituicao" name="emailInstituicao" required>
+
+                <label for="telefoneInstituicao">Telefone:</label>
+                <input type="tel" id="telefoneInstituicao" name="telefoneInstituicao" required>
+
+                <!-- Campo para Doações Necessitadas -->
+                <label for="doacoesNecessarias">Doações Necessárias</label>
+                <textarea id="doacoesNecessarias" name="doacoesNecessarias" placeholder="Descreva as doações que a instituição necessita" required></textarea>
+
+                <!-- Campo para Vincular Campanha -->
+                <label for="campanhaVinculada">Vincular Campanha (Opcional)</label>
+                <select id="campanhaVinculada" name="campanhaVinculada">
+                    <option value="">Selecione uma campanha</option>
+                    <option value="campanha1">Campanha 1</option>
+                    <option value="campanha2">Campanha 2</option>
+                    <option value="campanha3">Campanha 3</option>
+                </select>
+            </div>
+
+            <button type="submit" style="background-color: #426544;">Cadastrar Instituição</button>
         </form>
     </section>
+
+    <script>
+        // Máscara para o CNPJ
+        $(document).ready(function(){
+            $("#cnpj").mask("99.999.999/9999-99");
+        });
+    </script>
 </body>
 </html>
+

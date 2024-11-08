@@ -275,16 +275,10 @@ footer a {
     cursor: pointer;
 }
 
-.form-section {
-    padding: 20px;
-    margin: 20px;
-    background-color: #f2f2f2;
-    border-radius: 10px;
-}
 
 .perfil-section {
     padding: 20px;
-    background-color: #f2f2f2;
+    background-color: white;
     margin-top: 20px;
     border-radius: 10px;
     text-align: center;
@@ -296,10 +290,10 @@ footer a {
 }
 
 .perfil-section ul li {
-    background-color: #fff;
+    background-color: white;
     padding: 10px;
     margin: 10px 0;
-    border: 1px solid #ddd;
+    border: 1px solid white;
     border-radius: 5px;
 }
 
@@ -313,11 +307,98 @@ footer a {
     cursor: pointer;
 }
 
+
+.form-section {
+    color: #333333;
+    max-width: 500px;
+    margin: 50px auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Aplicar cor ao texto de todo o formulário */
+form {
+    color: #333333; /* Escolha a cor desejada */
+    font-family: Arial, sans-serif; /* Escolha uma fonte se necessário */
+}
+
+/* Se você quiser aplicar especificamente aos rótulos */
+form label {
+    color: #333333; /* Cor dos textos dos labels */
+}
+
+/* Aplicar cor aos textos dentro dos campos de input, textarea, e select */
+form input, form textarea, form select {
+    color: #333333; /* Cor dos textos dentro dos campos de input, textarea e select */
+    font-family: Arial, sans-serif; /* Certificar que a fonte também seja a correta */
+}
+
+/* Estilo para espaçamento entre os rótulos e os campos */
+.form-section label, 
+.form-section input, 
+.form-section textarea, 
+.form-section select {
+    display: block; /* Garante que os rótulos e campos fiquem em blocos separados */
+    margin-bottom: 15px; /* Espaço entre cada campo */
+    width: 100%; /* Faz o input ocupar toda a largura, opcional */
+}
+
+.form-section input, 
+.form-section textarea, 
+.form-section select {
+    padding: 8px; /* Espaçamento interno nos campos */
+    box-sizing: border-box; /* Garante que o padding não quebre o layout */
+}
+
+/* Se quiser um espaço maior entre os rótulos e os campos */
+.form-section label {
+    margin-bottom: 5px; /* Espaço entre o rótulo e o campo de input */
+}
+
+h2 {
+    text-align: center;/* Estilo para o formulário de cadastro */
+    form {
+        color: #333333; /* Exemplo de cor do texto no formulário */
+        font-family: Arial, sans-serif;
+    }
+    
+    /* Estilos específicos para o formulário de instituições */
+    .form-section label, .form-section input, .form-section textarea, .form-section select {
+        color: #333333; /* Mesma cor do formulário de cadastro */
+    }
+    
+    /* Adicionar um fundo ao formulário, se necessário */
+    .form-section {
+        background-color: #69996c; /* Cor de fundo especificada */
+        padding: 20px;
+        border-radius: 10px;
+    }
+    
+    button {
+        background-color: #426544; /* Cor do botão */
+        color: white; /* Cor do texto do botão */
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: #3b5a3e; /* Tom mais escuro no hover */
+    }
+    margin-bottom: 20px;
+}
+
+
 /* Estilização para o formulário de doação */
 .form-section form {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    
 }
 
 .form-section label {
@@ -329,23 +410,35 @@ footer a {
 .form-section input[type="date"],
 .form-section select, 
 .form-section textarea {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
     width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center; /* Centraliza o texto dentro do input */
 }
 
 .form-section button {
-    padding: 10px 20px;
-    background-color: #6699cc;
+    width: 100%;
+    padding: 15px;
+    background-color: #426544;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
 }
 
 .form-section button[type="button"] {
     background-color: #cc6666;
+}
+
+#emailInstituicao, 
+#telefoneInstituicao {
+    border-radius: 10px; /* Define o raio das bordas arredondadas */
+    padding: 10px; /* Adiciona espaço interno */
+    border: 1px solid #ccc; /* Exemplo de borda para ficar mais visível */
+    width: 100%; /* O campo vai ocupar 100% da largura disponível */
+    box-sizing: border-box; /* Garante que o padding não afete o tamanho total */
+    text-align: center;
 }
 
 /* Ajustes de estilo para o botão de excluir e voltar */

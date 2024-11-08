@@ -312,4 +312,8 @@ function cancelarDoacao() {
     window.location.href = 'perfil.html'; // Redireciona para o perfil
 }
 
+/* Para deixar o campo telefone no formato (99) 99999-9999 */
+  $(document).ready(function(){
+    $('#telefoneInstituicao').mask('(99) 99999-9999');
+  });
 
