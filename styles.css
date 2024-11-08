@@ -26,32 +26,52 @@ header {
     width: 300px;
 }
 
-.login {
-    padding: 5px;
-    background-color:  #69996c;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
-}
-
 .home-button {
-    background-color: #69996c;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    cursor: pointer;
-    border-radius: 5px;
+    background-color: #426544;  /* Cor de fundo */
+    color: white;               /* Cor do texto */
+    border: none;               /* Remove bordas */
+    padding: 10px 20px;         /* Espaçamento interno */
+    text-align: center;         /* Centraliza o texto */
+    text-decoration: none;      /* Remove sublinhado do link */
+    display: inline-block;
+    font-size: 16px;            /* Tamanho do texto */
+    border-radius: 10px;         /* Bordas arredondadas */
+    cursor: pointer;            /* Cursor de "mão" ao passar por cima */
 }
 
 .home-button a {
-    color: white;
-    text-decoration: none;
+    color: white;               /* Cor do texto */
+    text-decoration: none;      /* Remove sublinhado */
 }
 
 .home-button:hover {
-    background-color: #69996c;
+    background-color: #69996c;  /* Muda a cor ao passar o mouse */
 }
+
+button.home {
+    background-color: #426544;  /* Cor de fundo */
+    color: white;               /* Cor do texto */
+    border: none;               /* Remove bordas */
+    padding: 10px 20px;         /* Espaçamento interno */
+    text-align: center;         /* Centraliza o texto */
+    text-decoration: none;      /* Remove sublinhado do link */
+    display: inline-block;
+    font-size: 16px;            /* Tamanho do texto */
+    border-radius: 8px;         /* Bordas arredondadas */
+    cursor: pointer;            /* Cursor de "mão" ao passar por cima */
+}
+
+/* Estilo do link dentro do botão */
+button.home a {
+    color: white;               /* Cor do texto */
+    text-decoration: none;      /* Remove sublinhado */
+}
+
+/* Estilo do botão ao passar o mouse */
+button.home:hover {
+    background-color: #69996c;  /* Muda a cor ao passar o mouse */
+}
+
 
 .header-right {
     display: flex;
