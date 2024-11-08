@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 </head>
-<body>
+<body onload="carregarInstituicoes()">
     <header>
         <h1>Cadastro de Instituições</h1>
         <button class="home-button" onclick="voltarHome()">Home</button> <!-- Botão Home -->
@@ -15,66 +15,33 @@
 
     <section class="list-section">
         <h2>Instituições Cadastradas</h2>
-        <p><h3>Veja as instituições cadastradas e contribua!</p></h3>
+        <p><h3>Veja as instituições cadastradas e contribua!</h3></p>
         <ul id="listaInstituicoes"></ul> <!-- Lista de instituições -->
     </section>
 
-     <!-- Exemplo de uma instituição cadastrada -->
-     <table id="tabela" class="table">
-        <tbody>
-            <tr>
-                <td>
-                    <h3>Instituição Doe.App</h3>
-                    <p>CNPJ: 00.***.***/0001-**</p>
-                    <p>Endereço: Av. Murilo Dantas, 300 - Farolândia</p>
-                    <p>Contato: Squad 11</p>
-                    <p>Telefone: (79) 1234-5678</p>
-                </td>
-                <td>
-                    <h3>Instituição ABC</h3>
-                    <p>CNPJ: 00.***.***/0001-**</p>
-                    <p>Endereço: Rua Exemplo, 123 - Bairro: Farolândia</p>
-                    <p>Contato: Fulano</p>
-                    <p>Telefone: (79) 1234-5678</p>
-                </td>
-                <td>
-                    <h3>Instituição XYZ</h3>
-                    <p>CNPJ: 00.***.***/0001-**</p>
-                    <p>Endereço: Rua Modelo, 001 - Bairro: Atalaia</p>
-                    <p>Contato: Ciclano</p>
-                    <p>Telefone: (79) 1234-5678</p>
-                </td>
-                <td>
-                    <h3>Instituição AEIOU</h3>
-                    <p>CNPJ: 00.***.***/0001-**</p>
-                    <p>Endereço: Rua Universidade, 999 - Bairro: 13 de Julho</p>
-                    <p>Contato: Beltrano</p>
-                    <p>Telefone: (79) 1234-5678</p>
-                </td>
-        </tbody>
-    </table>
+    <!-- Exemplo de uma instituição cadastrada, será carregado dinamicamente -->
+    <section id="instituicoesCadastradas" class="institutions-section"></section>
 
     <section class="form-section">
-        <form id="instituicaoForm">
+        <h2>Cadastre uma nova Instituição</h2>
+        <form id="instituicaoForm" onsubmit="cadastrarInstituicao(event)">
             <label for="nomeInstituicao">Nome da Instituição:</label>
             <input type="text" id="nomeInstituicao" name="nomeInstituicao" required>
-            
+           
             <label for="cnpj">CNPJ:</label>
             <input type="text" id="cnpj" name="cnpj" required>
-            
+           
             <label for="emailInstituicao">Email:</label>
             <input type="email" id="emailInstituicao" name="emailInstituicao" required>
-            
+           
             <label for="telefoneInstituicao">Telefone:</label>
             <input type="tel" id="telefoneInstituicao" name="telefoneInstituicao" required>
-            
+           
             <label for="enderecoInstituicao">Endereço:</label>
             <textarea id="enderecoInstituicao" name="enderecoInstituicao" required></textarea>
-            
+           
             <button type="submit">Cadastrar Instituição</button>
         </form>
     </section>
-    
-
 </body>
 </html>

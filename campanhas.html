@@ -7,55 +7,38 @@
     <link rel="stylesheet" href="styles.css">
     <script src="script.js" defer></script>
 </head>
-<body>
+<body onload="carregarCampanha()">
     <header>
-        <h1>Cadastro de Campanhas</h1>
-        <button class="home-button" onclick="voltarHome()">Home</button> <!-- Botão Home -->
+        <h1>Detalhes da Campanha</h1>
+        <button class="home-button" onclick="voltarHome()">Home</button>
     </header>
-    <section class="list-section">
-        <h2>Campanhas Cadastradas</h2>
-        <p><h3>Veja as Campanhas vigentes e contribua!</p></h3>
-        <ul id="listaCampanhas"></ul> <!-- Lista de campanhas -->
+
+    <section class="campaign-detail">
+        <img id="campanhaImagem" alt="Imagem da Campanha">
+        <h2 id="campanhaNome"></h2>
+        <p id="campanhaDescricao"></p>
     </section>
 
-         <!-- Exemplo de uma instituição cadastrada -->
-         <table id="tabela" class="table">
-            <tbody>
-                <tr>
-                    <td>
-                        <h3>Campanha do Agasalho</h3>
-                        <p>Instituições beneficiadas: Instituição ABC, Instituição XYZ</p>
-                        <p>Descrição: Doação de roupas e agasalhos</p>
-                    </td>
-                    <td>
-                        <h3>Campanha do Alimento</h3>
-                        <p>Instituições beneficiadas: Instituição ABC, Instituição XYZ</p>
-                        <p>Descrição: Doação de alimentos não perecíveis</p>
-                    </td>
-                    <td>
-                        <h3>Campanha da Água</h3>
-                        <p>Instituições beneficiadas: Instituição ABC, Instituição XYZ</p>
-                        <p>Descrição: Doação de água mineral para regiões afetadas com a falta de água.</p>
-                    </td>
-            </tbody>
-        </table>
-
-    <section class="form-section">
-        <form id="campanhaForm">
-            <label for="nomeCampanha">Nome da Campanha:</label>
-            <input type="text" id="nomeCampanha" name="nomeCampanha" required>
-            
-            <label for="descricaoCampanha">Descrição:</label>
-            <textarea id="descricaoCampanha" name="descricaoCampanha" required></textarea>
-            
-            <label for="objetivoCampanha">Objetivo (R$):</label>
-            <input type="number" id="objetivoCampanha" name="objetivoCampanha" required>
-            
-            <label for="dataFinalizacao">Data de Finalização:</label>
-            <input type="date" id="dataFinalizacao" name="dataFinalizacao" required>
-            
-            <button type="submit">Cadastrar Campanha</button>
-        </form>
+    <section class="institutions">
+        <h2>Instituições Beneficiadas</h2>
+        <!-- Exemplo de uma instituição com imagem -->
+        <div class="institution-card">
+            <img src="instituicao1.jpg" alt="Instituição ABC">
+            <h3>Instituição ABC</h3>
+            <p>Informações sobre a Instituição ABC.</p>
+        </div>
+        <div class="institution-card">
+            <img src="instituicao2.jpg" alt="Instituição XYZ">
+            <h3>Instituição XYZ</h3>
+            <p>Informações sobre a Instituição XYZ.</p>
+        </div>
     </section>
+
+    <button onclick="doarAgora()">Doe Agora</button>
+
+    <!-- Formulário será carregado após verificar login -->
+    <div id="doacaoForm" style="display: none;">
+        <!-- Formulário de doação será exibido aqui -->
+    </div>
 </body>
 </html>

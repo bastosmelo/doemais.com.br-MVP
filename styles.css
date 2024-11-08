@@ -26,6 +26,33 @@ header {
     width: 300px;
 }
 
+.login {
+    padding: 5px;
+    background-color:  #69996c;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.home-button {
+    background-color: #69996c;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.home-button a {
+    color: white;
+    text-decoration: none;
+}
+
+.home-button:hover {
+    background-color: #69996c;
+}
+
 .header-right {
     display: flex;
     align-items: center;
@@ -196,6 +223,150 @@ footer a {
 
     footer {
         font-size: 0.7rem;
+        padding: 10px;
+    }
+}
+
+
+/* Campanhas */ 
+
+.campaign-image-section img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+}
+
+.institutions-section {
+    text-align: center;
+    padding: 20px;
+}
+
+.institutions-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.institution-card {
+    width: 200px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.institution-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.donate-now-section {
+    text-align: center;
+    margin: 20px;
+}
+
+.donate-now-section button {
+    padding: 10px 20px;
+    background-color: #69996c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-section {
+    padding: 20px;
+    margin: 20px;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+}
+
+.perfil-section {
+    padding: 20px;
+    background-color: #f2f2f2;
+    margin-top: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.perfil-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.perfil-section ul li {
+    background-color: #fff;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.perfil-section button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #69996c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Estilização para o formulário de doação */
+.form-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-section label {
+    font-weight: bold;
+}
+
+.form-section input[type="text"], 
+.form-section input[type="number"], 
+.form-section input[type="date"],
+.form-section select, 
+.form-section textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.form-section button {
+    padding: 10px 20px;
+    background-color: #6699cc;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.form-section button[type="button"] {
+    background-color: #cc6666;
+}
+
+/* Ajustes de estilo para o botão de excluir e voltar */
+.form-section button[type="button"] {
+    background-color: #d9534f;
+    margin-top: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .institutions-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .institution-card {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .form-section, .perfil-section {
         padding: 10px;
     }
 }
