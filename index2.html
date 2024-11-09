@@ -88,5 +88,119 @@
             <p>E-mail: contato@doeapp.com</p>
         </div>
     </footer>
+    <!-- Código JavaScript embutido -->
+    <script>
+        // Funções para navegação
+        function abrirInstituicoes() {
+            window.location.href = "instituicoes.html";
+        }
+
+        function abrirDoadores() {
+            window.location.href = "doadores.html";
+        }
+
+        function abrirCampanhas() {
+            window.location.href = "campanhas.html";
+        }
+
+        // Funções para listas dinâmicas
+        let instituicoes = [];
+        document.getElementById('instituicaoForm')?.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const nomeInstituicao = document.getElementById('nomeInstituicao').value;
+            instituicoes.push(nomeInstituicao);
+            atualizarListaInstituicoes();
+            alert('Instituição cadastrada com sucesso!');
+        });
+
+        function atualizarListaInstituicoes() {
+            const lista = document.getElementById('listaInstituicoes');
+            lista.innerHTML = '';
+            instituicoes.forEach((instituicao, index) => {
+                const li = document.createElement('li');
+                li.textContent = `${index + 1}. ${instituicao}`;
+                lista.appendChild(li);
+            });
+        }
+
+        // Funções similares para Doadores e Campanhas
+        let doadores = [];
+        document.getElementById('doadorForm')?.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const nomeDoador = document.getElementById('nomeDoador').value;
+            doadores.push(nomeDoador);
+            atualizarListaDoadores();
+            alert('Doador cadastrado com sucesso!');
+        });
+
+        function atualizarListaDoadores() {
+            const lista = document.getElementById('listaDoadores');
+            lista.innerHTML = '';
+            doadores.forEach((doador, index) => {
+                const li = document.createElement('li');
+                li.textContent = `${index + 1}. ${doador}`;
+                lista.appendChild(li);
+            });
+        }
+
+        let campanhas = [];
+        document.getElementById('campanhaForm')?.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const nomeCampanha = document.getElementById('nomeCampanha').value;
+            campanhas.push(nomeCampanha);
+            atualizarListaCampanhas();
+            alert('Campanha cadastrada com sucesso!');
+        });
+
+        function atualizarListaCampanhas() {
+            const lista = document.getElementById('listaCampanhas');
+            lista.innerHTML = '';
+            campanhas.forEach((campanha, index) => {
+                const li = document.createElement('li');
+                li.textContent = `${index + 1}. ${campanha}`;
+                lista.appendChild(li);
+            });
+        }
+
+        // Função de navegação para a página inicial
+        function voltarHome() {
+            window.location.href = "index.html";
+        }
+
+        // Função de carregamento de campanha
+        function carregarCampanha() {
+            const nome = localStorage.getItem('campanhaNome');
+            const imagem = localStorage.getItem('campanhaImagem');
+            const descricao = localStorage.getItem('campanhaDescricao');
+
+            document.getElementById('campanhaNome').textContent = nome;
+            document.getElementById('campanhaImagem').src = imagem;
+            document.getElementById('campanhaDescricao').textContent = descricao;
+        }
+
+        function doarAgora() {
+            const usuarioLogado = localStorage.getItem('usuarioLogado');
+            if (!usuarioLogado) {
+                window.location.href = 'login.html';
+            } else {
+                document.getElementById('doacaoForm').style.display = 'block';
+            }
+        }
+        
+        // Máscara de CPF e CNPJ
+        document.getElementById('cpf')?.addEventListener('input', function() {
+            let cpf = this.value.replace(/\D/g, '');
+            if (cpf.length > 11) cpf = cpf.slice(0, 11);
+            cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+            this.value = cpf;
+        });
+
+        document.getElementById('cnpj')?.addEventListener('input', function() {
+            let cnpj = this.value.replace(/\D/g, '');
+            if (cnpj.length > 14) cnpj = cnpj.slice(0, 14);
+            cnpj = cnpj.replace(/(\d{2})(\d)/, '$1.$2').replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})(\d)/, '$1/$2').replace(/(\d{4})(\d{1,2})$/, '$1-$2');
+            this.value = cnpj;
+        });
+    </script>
 </body>
 </html>
