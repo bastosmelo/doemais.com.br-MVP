@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doe.App - Cadastro</title>
     <link rel="stylesheet" href="cadastro.css">
-    <script src="script.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script> <!-- Máscara para o CNPJ -->
 </head>
 <body>
     <!-- Cabeçalho -->
@@ -24,8 +22,8 @@
     <!-- Container de Registro -->
     <div class="register-container">
         <h2>Cadastro</h2>
-        <form action="/register" method="post">
-            <!-- Checklist para verificar se é Pessoa Física ou Jurídica -->
+        <form id="formCadastro" action="/register" method="post">
+            <!-- Seção para selecionar o tipo de pessoa -->
             <div class="input-group">
                 <label>Tipo de Pessoa:</label>
                 <input type="radio" id="pessoaFisica" name="tipoPessoa" value="fisica" required>
@@ -39,36 +37,39 @@
             <div id="formFisica" style="display: none;">
                 <div class="input-group">
                     <label for="cpf">CPF</label>
-                    <input type="text" id="cpf" name="cpf" maxlength="14">
+                    <input type="text" id="cpf" name="cpf" maxlength="14" required>
                 </div>
                 <div class="input-group">
                     <label for="nameFisica">Nome Completo</label>
-                    <input type="text" id="nameFisica" name="nameFisica">
+                    <input type="text" id="nameFisica" name="nameFisica" required>
                 </div>
-
-                <!-- Endereço com campos separados para Pessoa Física -->
                 <div class="input-group">
-                    <label for="enderecoFisica">Endereço:</label>
+                    <label for="telefone">Telefone</label>
+                    <input type="text" id="telefone" name="telefone" required>
+                </div>
+                <!-- Endereço de Pessoa Física -->
+                <div class="input-group">
+                    <label for="enderecoFisica">Endereço</label>
                     <input type="text" id="enderecoFisica" name="enderecoFisica" placeholder="Rua, Avenida, etc." required>
                 </div>
                 <div class="input-group">
-                    <label for="numeroFisica">Número:</label>
+                    <label for="numeroFisica">Número</label>
                     <input type="text" id="numeroFisica" name="numeroFisica" required>
                 </div>
                 <div class="input-group">
-                    <label for="complementoFisica">Complemento:</label>
+                    <label for="complementoFisica">Complemento</label>
                     <input type="text" id="complementoFisica" name="complementoFisica">
                 </div>
                 <div class="input-group">
-                    <label for="bairroFisica">Bairro:</label>
+                    <label for="bairroFisica">Bairro</label>
                     <input type="text" id="bairroFisica" name="bairroFisica" required>
                 </div>
                 <div class="input-group">
-                    <label for="cidadeFisica">Cidade:</label>
+                    <label for="cidadeFisica">Cidade</label>
                     <input type="text" id="cidadeFisica" name="cidadeFisica" required>
                 </div>
                 <div class="input-group">
-                    <label for="estadoFisica">Estado:</label>
+                    <label for="estadoFisica">Estado</label>
                     <input type="text" id="estadoFisica" name="estadoFisica" required>
                 </div>
             </div>
@@ -77,53 +78,123 @@
             <div id="formJuridica" style="display: none;">
                 <div class="input-group">
                     <label for="cnpj">CNPJ</label>
-                    <input type="text" id="cnpj" name="cnpj" maxlength="18">
+                    <input type="text" id="cnpj" name="cnpj" maxlength="18" required>
                 </div>
                 <div class="input-group">
                     <label for="nameJuridica">Nome da Empresa</label>
-                    <input type="text" id="nameJuridica" name="nameJuridica">
+                    <input type="text" id="nameJuridica" name="nameJuridica" required>
                 </div>
                 <div class="input-group">
-                    <label for="nameContato">Pessoa de contato</label>
-                    <input type="text" id="nameContato" name="nameContato">
+                    <label for="nameContato">Pessoa de Contato</label>
+                    <input type="text" id="nameContato" name="nameContato" required>
                 </div>
-
-                <!-- Endereço com campos separados para Pessoa Jurídica -->
                 <div class="input-group">
-                    <label for="enderecoJuridica">Endereço:</label>
+                    <label for="telefone">Telefone</label>
+                    <input type="text" id="telefone" name="telefone" required>
+                </div>
+                <!-- Endereço de Pessoa Jurídica -->
+                <div class="input-group">
+                    <label for="enderecoJuridica">Endereço</label>
                     <input type="text" id="enderecoJuridica" name="enderecoJuridica" placeholder="Rua, Avenida, etc." required>
                 </div>
                 <div class="input-group">
-                    <label for="numeroJuridica">Número:</label>
+                    <label for="numeroJuridica">Número</label>
                     <input type="text" id="numeroJuridica" name="numeroJuridica" required>
                 </div>
                 <div class="input-group">
-                    <label for="complementoJuridica">Complemento:</label>
+                    <label for="complementoJuridica">Complemento</label>
                     <input type="text" id="complementoJuridica" name="complementoJuridica">
                 </div>
                 <div class="input-group">
-                    <label for="bairroJuridica">Bairro:</label>
+                    <label for="bairroJuridica">Bairro</label>
                     <input type="text" id="bairroJuridica" name="bairroJuridica" required>
                 </div>
                 <div class="input-group">
-                    <label for="cidadeJuridica">Cidade:</label>
+                    <label for="cidadeJuridica">Cidade</label>
                     <input type="text" id="cidadeJuridica" name="cidadeJuridica" required>
                 </div>
                 <div class="input-group">
-                    <label for="estadoJuridica">Estado:</label>
+                    <label for="estadoJuridica">Estado</label>
                     <input type="text" id="estadoJuridica" name="estadoJuridica" required>
                 </div>
             </div>
 
-            <button type="submit" style="background-color: #426544;">Cadastrar</button>
+            <!-- Botão de Cadastro -->
+            <button type="submit" class="btn-cadastrar" style="display: none;">Cadastrar</button>
             <p class="login-link">Já tem uma conta? <a href="login.html">Entrar</a></p>
         </form>
     </div>
 
     <script>
-        // Máscara para o CNPJ
-        $(document).ready(function(){
-            $("#cnpj").mask("99.999.999/9999-99");
+        // Função para alternar entre Pessoa Física e Jurídica
+        document.addEventListener('DOMContentLoaded', function() {
+            const pessoaFisicaRadio = document.getElementById('pessoaFisica');
+            const pessoaJuridicaRadio = document.getElementById('pessoaJuridica');
+            const formFisica = document.getElementById('formFisica');
+            const formJuridica = document.getElementById('formJuridica');
+            const btnCadastrar = document.querySelector('.btn-cadastrar');
+
+            function ajustarBotao() {
+                // Ajustar o botão para o tamanho do formulário ativo
+                const formAtivo = pessoaFisicaRadio.checked ? formFisica : formJuridica;
+                btnCadastrar.style.width = formAtivo.clientWidth + 'px';
+            }
+
+            pessoaFisicaRadio.addEventListener('change', function() {
+                if (this.checked) {
+                    formFisica.style.display = 'block';
+                    formJuridica.style.display = 'none';
+                    ajustarBotao();
+                    btnCadastrar.style.display = 'block'; // Mostrar o botão
+                }
+            });
+
+            pessoaJuridicaRadio.addEventListener('change', function() {
+                if (this.checked) {
+                    formFisica.style.display = 'none';
+                    formJuridica.style.display = 'block';
+                    ajustarBotao();
+                    btnCadastrar.style.display = 'block'; // Mostrar o botão
+                }
+            });
+        });
+
+
+        // Máscara de CPF e CNPJ usando input masks
+        const cpfInput = document.getElementById('cpf');
+        const cnpjInput = document.getElementById('cnpj');
+
+        cpfInput.addEventListener('input', function() {
+            let cpf = cpfInput.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+            if (cpf.length > 11) cpf = cpf.slice(0, 11); // Limita a 11 dígitos
+            cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2')
+                    .replace(/(\d{3})(\d)/, '$1.$2')
+                    .replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+            cpfInput.value = cpf;
+        });
+
+        cnpjInput.addEventListener('input', function() {
+            let cnpj = cnpjInput.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+            if (cnpj.length > 14) cnpj = cnpj.slice(0, 14); // Limita a 14 dígitos
+            cnpj = cnpj.replace(/(\d{2})(\d)/, '$1.$2')
+                    .replace(/(\d{3})(\d)/, '$1.$2')
+                    .replace(/(\d{3})(\d)/, '$1/$2')
+                    .replace(/(\d{4})(\d{1,2})$/, '$1-$2');
+            cnpjInput.value = cnpj;
+        });
+
+        // Seleciona os dois campos de telefone (pessoa física e pessoa jurídica)
+        const telefoneInputs = document.querySelectorAll('input[name="telefone"]');
+
+        // Aplica a máscara de telefone (99) 99999-9999 para ambos os campos
+        telefoneInputs.forEach(function(telefoneInput) {
+            telefoneInput.addEventListener('input', function() {
+            let telefone = telefoneInput.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+            if (telefone.length > 11) telefone = telefone.slice(0, 11); // Limita a 11 dígitos
+            telefone = telefone.replace(/(\d{2})(\d)/, '($1) $2') // Aplica máscara (XX) XXXXX-XXXX
+                    .replace(/(\d{5})(\d{1,4})$/, '$1-$2');
+            telefoneInput.value = telefone;
+        });
         });
     </script>
 </body>

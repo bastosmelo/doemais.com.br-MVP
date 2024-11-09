@@ -213,69 +213,107 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Função para cadastrar uma nova instituição
-function cadastrarInstituicao(event) {
-    event.preventDefault(); // Impede o comportamento padrão do formulário
+        // Função para carregar instituições já cadastradas
+        function carregarInstituicoes() {
+            const listaInstituicoes = JSON.parse(localStorage.getItem('instituicoes')) || [];
+            const ul = document.getElementById('listaInstituicoes');
 
-    const nome = document.getElementById('nomeInstituicao').value;
-    const cnpj = document.getElementById('cnpj').value;
-    const email = document.getElementById('emailInstituicao').value;
-    const telefone = document.getElementById('telefoneInstituicao').value;
-    const endereco = document.getElementById('enderecoInstituicao').value;
+            ul.innerHTML = ''; // Limpa a lista
 
-    const instituicao = {
-        nome,
-        cnpj,
-        email,
-        telefone,
-        endereco
-    };
+            listaInstituicoes.forEach((instituicao, index) => {
+                const li = document.createElement('li');
+                li.innerHTML = `${instituicao.nome} <button onclick="verDetalhes(${index})">Ver Detalhes</button>`;
+                ul.appendChild(li);
+            });
+        }
 
-    // Salvando no localStorage
-    let instituicoes = JSON.parse(localStorage.getItem('instituicoes')) || [];
-    instituicoes.push(instituicao);
-    localStorage.setItem('instituicoes', JSON.stringify(instituicoes));
+        // Função para cadastrar nova instituição
+        function cadastrarInstituicao(event) {
+            event.preventDefault();
 
-    // Recarregar a lista
-    carregarInstituicoes();
+            const nome = document.getElementById('nameJuridica').value;
+            const contato = document.getElementById('nameContato').value;
+            const cnpj = document.getElementById('cnpj').value;
+            const endereco = document.getElementById('enderecoJuridica').value;
+            const numero = document.getElementById('numeroJuridica').value;
+            const complemento = document.getElementById('complementoJuridica').value;
+            const bairro = document.getElementById('bairroJuridica').value;
+            const cidade = document.getElementById('cidadeJuridica').value;
+            const estado = document.getElementById('estadoJuridica').value;
+            const email = document.getElementById('emailInstituicao').value;
+            const telefone = document.getElementById('telefoneInstituicao').value;
+            const doacoes = document.getElementById('doacoesNecessarias').value;
+            const campanha = document.getElementById('campanhaVinculada').value;
 
-    // Limpar o formulário
-    document.getElementById('instituicaoForm').reset();
-}
+            const novaInstituicao = {
+                nome, contato, cnpj, endereco, numero, complemento, bairro, cidade, estado, email, telefone, doacoes, campanha
+            };
 
-// Função para carregar as instituições do localStorage e exibi-las na página
-function carregarInstituicoes() {
-    const listaInstituicoes = document.getElementById('instituicoesCadastradas');
-    listaInstituicoes.innerHTML = ''; // Limpa a lista antes de carregar
+            const instituicoes = JSON.parse(localStorage.getItem('instituicoes')) || [];
+            instituicoes.push(novaInstituicao);
+            localStorage.setItem('instituicoes', JSON.stringify(instituicoes));
 
-    let instituicoes = JSON.parse(localStorage.getItem('instituicoes')) || [];
+            carregarInstituicoes(); // Atualiza a lista
+            document.getElementById('instituicaoForm').reset(); // Limpa o formulário
+        }
 
-    instituicoes.forEach((instituicao, index) => {
-        const instituicaoCard = document.createElement('div');
-        instituicaoCard.classList.add('institution-card');
-        instituicaoCard.innerHTML = `
-            <h3>${instituicao.nome}</h3>
-            <p>CNPJ: ${instituicao.cnpj}</p>
-            <p>Endereço: ${instituicao.endereco}</p>
-            <p>Contato: ${instituicao.email}, ${instituicao.telefone}</p>
-            <button onclick="verInstituicao(${index})">Ver Detalhes</button>
-        `;
+        // Função para visualizar detalhes da instituição
+        function verDetalhes(index) {
+            window.location.href = `detalhes_instituicao.html?index=${index}`;
+        }
 
-        listaInstituicoes.appendChild(instituicaoCard);
-    });
-}
+        // Máscara para o CNPJ
+        $(document).ready(function(){
+            $("#cnpj").mask("99.999.999/9999-99");
+        });
 
-// Função para ver os detalhes de uma instituição selecionada
-function verInstituicao(index) {
-    const instituicoes = JSON.parse(localStorage.getItem('instituicoes'));
-    const instituicaoSelecionada = instituicoes[index];
 
-    // Armazenar os detalhes da instituição no localStorage para a próxima página
-    localStorage.setItem('instituicaoSelecionada', JSON.stringify(instituicaoSelecionada));
 
-    // Redirecionar para a página de detalhes da instituição
-    window.location.href = 'detalhes_instituicao.html';
-}
+            // Simulação de lista de instituições previamente cadastradas (poderia ser carregada de um banco de dados)
+    let instituicoes = [
+        {
+            nome: "Instituição A",
+            cnpj: "00.000.000/0001-00",
+            endereco: "Rua A, 123",
+            contato: "João Silva"
+        },
+        {
+            nome: "Instituição B",
+            cnpj: "11.111.111/0001-11",
+            endereco: "Rua B, 456",
+            contato: "Maria Souza"
+        }
+    ];
+
+    function carregarInstituicoes() {
+        const lista = document.getElementById('listaInstituicoes');
+        lista.innerHTML = ""; // Limpa a lista antes de popular
+
+        instituicoes.forEach((instituicao, index) => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <strong>${instituicao.nome}</strong>
+                <button onclick="verDetalhes(${index})">Ver Detalhes</button>
+            `;
+            lista.appendChild(li);
+        });
+    }
+
+    // Redireciona para a página de detalhes passando informações pela URL
+    function verDetalhes(index) {
+        const instituicao = instituicoes[index];
+        const params = new URLSearchParams({
+            nome: instituicao.nome,
+            cnpj: instituicao.cnpj,
+            endereco: instituicao.endereco,
+            contato: instituicao.contato
+        }).toString();
+
+        window.location.href = `detalhes_instituicao.html?${params}`;
+    }
+
+
+    
 
 // Função para voltar à Home
 function voltarHome() {

@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doe.App - Detalhes da Instituição</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
-</head>
 <body onload="carregarDetalhesInstituicao()">
     <header>
         <h1>Detalhes da Instituição</h1>
@@ -15,25 +6,23 @@
 
     <section class="institution-detail">
         <h2 id="nomeInstituicao"></h2>
-        <h2><p id="cnpjInstituicao"></p></h2>
-        <h2><p id="enderecoInstituicao"></p></h2>
-        <h2><p id="contatoInstituicao"></p></h2>
-
-        <h2><button onclick="doarAgora()">Doe Agora</button></h2>
+        <p id="cnpjInstituicao"></p>
+        <p id="enderecoInstituicao"></p>
+        <p id="contatoInstituicao"></p>
+        <button onclick="doarAgora()">Doe Agora</button>
     </section>
 
-    <!-- Formulário será carregado após verificar login -->
-    <div id="doacaoForm" style="display: none;">
-        <form onsubmit="confirmarDoacao(event)">
-            <label for="tipoDoacao">O que deseja doar:</label>
-            <input type="text" id="tipoDoacao" name="tipoDoacao" required>
+    <script>
+        function carregarDetalhesInstituicao() {
+            const params = new URLSearchParams(window.location.search);
+            document.getElementById('nomeInstituicao').innerText = params.get('nome');
+            document.getElementById('cnpjInstituicao').innerText = "CNPJ: " + params.get('cnpj');
+            document.getElementById('enderecoInstituicao').innerText = "Endereço: " + params.get('endereco');
+            document.getElementById('contatoInstituicao').innerText = "Contato: " + params.get('contato');
+        }
 
-            <label for="quantidadeDoacao">Qual a quantidade:</label>
-            <input type="number" id="quantidadeDoacao" name="quantidadeDoacao" required>
-
-            <button type="submit">Confirmar Doação</button>
-            <button type="button" onclick="cancelarDoacao()">Excluir e Voltar</button>
-        </form>
-    </div>
+        function doarAgora() {
+            // Lógica de doação
+        }
+    </script>
 </body>
-</html>
