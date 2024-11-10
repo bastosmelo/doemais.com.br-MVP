@@ -72,6 +72,23 @@ button.home:hover {
     background-color: #69996c;  /* Muda a cor ao passar o mouse */
 }
 
+/* Botão Voltar */
+.back-button {
+    background-color: #426544;  /* Cor de fundo */
+    color: white;               /* Cor do texto */
+    border: none;               /* Remove bordas */
+    padding: 10px 20px;         /* Espaçamento interno */
+    text-align: center;         /* Centraliza o texto */
+    text-decoration: none;      /* Remove sublinhado do link */
+    display: inline-block;
+    font-size: 16px;            /* Tamanho do texto */
+    border-radius: 8px;         /* Bordas arredondadas */
+    cursor: pointer;            /* Cursor de "mão" ao passar por cima */
+}
+
+.back-button:hover {
+    background-color: #69996c;  /* Muda a cor ao passar o mouse */
+}
 
 .header-right {
     display: flex;
