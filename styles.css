@@ -413,6 +413,11 @@ h2 {
 }
 
 
+.institution-detail{
+    text-align: center;
+}
+
+
 /* Estilização para o formulário de doação */
 .form-section form {
     display: flex;
@@ -451,15 +456,7 @@ h2 {
     background-color: #cc6666;
 }
 
-#emailInstituicao, 
-#telefoneInstituicao {
-    border-radius: 10px; /* Define o raio das bordas arredondadas */
-    padding: 10px; /* Adiciona espaço interno */
-    border: 1px solid #ccc; /* Exemplo de borda para ficar mais visível */
-    width: 100%; /* O campo vai ocupar 100% da largura disponível */
-    box-sizing: border-box; /* Garante que o padding não afete o tamanho total */
-    text-align: center;
-}
+
 
 /* Ajustes de estilo para o botão de excluir e voltar */
 .form-section button[type="button"] {

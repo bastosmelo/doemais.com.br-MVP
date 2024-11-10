@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes da Instituição</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
 <body onload="carregarDetalhesInstituicao()">
     <header>
         <h1>Detalhes da Instituição</h1>
@@ -9,20 +17,38 @@
         <p id="cnpjInstituicao"></p>
         <p id="enderecoInstituicao"></p>
         <p id="contatoInstituicao"></p>
+        <p id="emailInstituicao"></p>
+        <p id="telefoneInstituicao"></p>
+        <p id="doacoesNecessarias"></p>
+        <p id="campanhaVinculada"></p>
         <button onclick="doarAgora()">Doe Agora</button>
     </section>
 
     <script>
         function carregarDetalhesInstituicao() {
             const params = new URLSearchParams(window.location.search);
-            document.getElementById('nomeInstituicao').innerText = params.get('nome');
-            document.getElementById('cnpjInstituicao').innerText = "CNPJ: " + params.get('cnpj');
-            document.getElementById('enderecoInstituicao').innerText = "Endereço: " + params.get('endereco');
-            document.getElementById('contatoInstituicao').innerText = "Contato: " + params.get('contato');
+            const index = params.get('index');
+            const instituicoes = JSON.parse(localStorage.getItem('instituicoes')) || [];
+
+            const instituicao = instituicoes[index];
+
+            document.getElementById('nomeInstituicao').innerText = instituicao.nome;
+            document.getElementById('cnpjInstituicao').innerText = "CNPJ: " + instituicao.cnpj;
+            document.getElementById('enderecoInstituicao').innerText = `Endereço: ${instituicao.endereco}, ${instituicao.numero}, ${instituicao.bairro}, ${instituicao.cidade} - ${instituicao.estado}`;
+            document.getElementById('contatoInstituicao').innerText = "Contato: " + instituicao.contato;
+            document.getElementById('emailInstituicao').innerText = "Email: " + instituicao.email;
+            document.getElementById('telefoneInstituicao').innerText = "Telefone: " + instituicao.telefone;
+            document.getElementById('doacoesNecessarias').innerText = "Doações Necessárias: " + instituicao.doacoes;
+            document.getElementById('campanhaVinculada').innerText = instituicao.campanha ? "Campanha Vinculada: " + instituicao.campanha : "Nenhuma campanha vinculada";
         }
 
         function doarAgora() {
-            // Lógica de doação
+            alert('Redirecionando para doação...');
+        }
+
+        function voltarHome() {
+            window.location.href = "index.html";
         }
     </script>
 </body>
+</html>
