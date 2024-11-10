@@ -268,23 +268,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
 
-
-            // Simulação de lista de instituições previamente cadastradas (poderia ser carregada de um banco de dados)
-    let instituicoes = [
-        {
-            nome: "Instituição A",
-            cnpj: "00.000.000/0001-00",
-            endereco: "Rua A, 123",
-            contato: "João Silva"
-        },
-        {
-            nome: "Instituição B",
-            cnpj: "11.111.111/0001-11",
-            endereco: "Rua B, 456",
-            contato: "Maria Souza"
-        }
-    ];
-
     function carregarInstituicoes() {
         const lista = document.getElementById('listaInstituicoes');
         lista.innerHTML = ""; // Limpa a lista antes de popular
