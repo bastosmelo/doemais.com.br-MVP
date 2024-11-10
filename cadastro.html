@@ -48,8 +48,8 @@
                     <input type="text" id="telefone" name="telefone" required>
                 </div>
                 <div class="input-group">
-                    <label for="emailFisica">Email</label>
-                    <input type="email" id="emailFisica" name="emailFisica" required>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
                 </div>
                 <!-- Endereço de Pessoa Física -->
                 <div class="input-group">
@@ -97,8 +97,8 @@
                     <input type="text" id="telefone" name="telefone" required>
                 </div>
                 <div class="input-group">
-                    <label for="emailInstituicao">Email</label>
-                    <input type="email" id="emailInstituicao" name="emailInstituicao" required>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
                 </div>
                 <!-- Endereço de Pessoa Jurídica -->
                 <div class="input-group">
@@ -204,6 +204,21 @@
             telefoneInput.value = telefone;
         });
         });
+
+        function validarEmail(email) {
+            // Expressão regular para validar o formato de e-mail
+            const regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            return regexEmail.test(email);
+        }
+
+        document.getElementById('formFisica','formJuridica').addEventListener('submit', function(event) {
+            const email = document.getElementById('email').value;
+        
+            if (!validarEmail(email)) {
+              event.preventDefault(); // Evita o envio do formulário se o e-mail for inválido
+              alert('Por favor, insira um e-mail válido.');
+            }
+         });
     </script>
 </body>
 </html>
