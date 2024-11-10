@@ -433,6 +433,8 @@ h2 {
 .form-section input[type="text"], 
 .form-section input[type="number"], 
 .form-section input[type="date"],
+.form-section input[type="email"],
+.form-section input[type="telefone"],
 .form-section select, 
 .form-section textarea {
     width: 100%;
@@ -455,8 +457,6 @@ h2 {
 .form-section button[type="button"] {
     background-color: #cc6666;
 }
-
-
 
 /* Ajustes de estilo para o botão de excluir e voltar */
 .form-section button[type="button"] {

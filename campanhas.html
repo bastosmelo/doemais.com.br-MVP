@@ -5,13 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doe.App - Campanhas</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
 </head>
+
 <body onload="carregarCampanha()">
+
+    <!-- Cabeçalho -->
     <header>
-        <h1>Detalhes da Campanha</h1>
-        <button class="home-button" onclick="voltarHome()">Home</button>
+        <div class="logo">
+            <img src="Imagens/Logo-Doe.App.png" alt="Logo Doe.App">
+        </div>
+            <button class="home-button" onclick="voltarHome()">Home</button>
     </header>
+
+    <section class="institutions">
+        <h1>Detalhes da Campanha</h1>
+        <div id="listaInstituicoes"></div>
+    </section>
 
     <section class="campaign-detail">
         <img id="campanhaImagem" alt="Imagem da Campanha">
@@ -19,26 +28,54 @@
         <p id="campanhaDescricao"></p>
     </section>
 
-    <section class="institutions">
-        <h2>Instituições Beneficiadas</h2>
-        <!-- Exemplo de uma instituição com imagem -->
-        <div class="institution-card">
-            <img src="instituicao1.jpg" alt="Instituição ABC">
-            <h3>Instituição ABC</h3>
-            <p>Informações sobre a Instituição ABC.</p>
-        </div>
-        <div class="institution-card">
-            <img src="instituicao2.jpg" alt="Instituição XYZ">
-            <h3>Instituição XYZ</h3>
-            <p>Informações sobre a Instituição XYZ.</p>
-        </div>
-    </section>
-
     <button onclick="doarAgora()">Doe Agora</button>
 
-    <!-- Formulário será carregado após verificar login -->
-    <div id="doacaoForm" style="display: none;">
-        <!-- Formulário de doação será exibido aqui -->
-    </div>
+    <script>
+        // Função para carregar os detalhes da campanha a partir do localStorage
+        function carregarCampanha() {
+            const nome = localStorage.getItem('campanhaNome');
+            const imagem = localStorage.getItem('campanhaImagem');
+            const descricao = localStorage.getItem('campanhaDescricao');
+            const instituicoes = JSON.parse(localStorage.getItem('campanhaInstituicoes')) || [];
+
+            document.getElementById('campanhaNome').textContent = nome;
+            document.getElementById('campanhaImagem').src = imagem;
+            document.getElementById('campanhaDescricao').textContent = descricao;
+
+            const instituicoesContainer = document.getElementById('listaInstituicoes');
+            instituicoesContainer.innerHTML = '';
+            instituicoes.forEach(instituicao => {
+                const div = document.createElement('div');
+                div.classList.add('institution-card');
+                div.innerHTML = `<h3>${instituicao.nome}</h3><p>${instituicao.descricao}</p>`;
+                instituicoesContainer.appendChild(div);
+            });
+        }
+
+        // Função para verificar login e redirecionar para doação
+        function doarAgora() {
+            const usuarioLogado = localStorage.getItem('usuarioLogado');
+            if (!usuarioLogado) {
+                window.location.href = 'login.html';
+            } else {
+                window.location.href = 'doacao.html';
+            }
+        }
+
+        // Função para voltar à página inicial
+        function voltarHome() {
+            window.location.href = 'index.html';
+        }
+
+        // Função para selecionar campanha e armazenar dados no localStorage
+        function selecionarCampanha(nome, imagem, descricao, instituicoes) {
+            localStorage.setItem('campanhaNome', nome);
+            localStorage.setItem('campanhaImagem', imagem);
+            localStorage.setItem('campanhaDescricao', descricao);
+            localStorage.setItem('campanhaInstituicoes', JSON.stringify(instituicoes));
+
+            window.location.href = 'campanhas.html';
+        }
+    </script>
 </body>
 </html>

@@ -51,10 +51,10 @@
                 <input type="text" id="estadoJuridica" name="estadoJuridica" required>
 
                 <label for="emailInstituicao">Email:</label>
-                <input type="email" id="emailInstituicao" name="emailInstituicao" required>
+                <input type="email" id="email" name="email" required>
 
-                <label for="telefoneInstituicao">Telefone:</label>
-                <input type="tel" id="telefoneInstituicao" name="telefoneInstituicao" required>
+                <label for="telefone">Telefone:</label>
+                <input type="telefone" id="telefone" name="telefone" required>
 
                 <label for="doacoesNecessarias">Doações Necessárias</label>
                 <textarea id="doacoesNecessarias" name="doacoesNecessarias" placeholder="Descreva as doações que a instituição necessita" required></textarea>
@@ -77,6 +77,26 @@
             $("#cnpj").mask("99.999.999/9999-99");
             $('#telefoneInstituicao').mask('(99) 99999-9999');
         });
+
+        // Seleciona os dois campos de telefone (pessoa física e pessoa jurídica)
+        const telefoneInputs = document.querySelectorAll('input[name="telefone"]');
+
+        // Aplica a máscara de telefone (99) 99999-9999 para ambos os campos
+        telefoneInputs.forEach(function(telefoneInput) {
+            telefoneInput.addEventListener('input', function() {
+            let telefone = telefoneInput.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+            if (telefone.length > 11) telefone = telefone.slice(0, 11); // Limita a 11 dígitos
+            telefone = telefone.replace(/(\d{2})(\d)/, '($1) $2') // Aplica máscara (XX) XXXXX-XXXX
+                    .replace(/(\d{5})(\d{1,4})$/, '$1-$2');
+            telefoneInput.value = telefone;
+        });
+        });
+
+        // Expressão regular para validar o formato de e-mail
+        function validarEmail(email) {
+            const regexEmail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            return regexEmail.test(email);
+        }
 
         function carregarInstituicoes() {
             const listaInstituicoes = JSON.parse(localStorage.getItem('instituicoes')) || [];
