@@ -52,50 +52,45 @@ header {
 }
 
 /* Navegação */
+/* Esconde o menu por padrão em dispositivos pequenos */
 .nav {
     display: flex;
+    flex-direction: column; /* Deixa os itens em coluna */
+    background-color: #426544; /* Cor de fundo opcional */
+    position: absolute;
+    top: 50px; /* Ajuste conforme o layout */
+    right: 0;
+    width: auto; /* Largura do menu */
+    z-index: 1000; /* Certifique-se de que está sobre os outros elementos */
     gap: 15px;
 }
 
+/* Exibe o menu quando a classe 'active' é adicionada */
+.nav.active {
+    display: flex;
+}
+
+/* Estilo opcional para os links dentro do menu */
 .nav a {
     color: white;
+    padding: 10px;
+    text-align: center;
     text-decoration: none;
     padding: 5px 10px;
     font-size: 14px;
 }
 
 .nav a:hover {
-    text-decoration: underline;
+    background-color: underline;
 }
 
-/* Botão de login/registro */
-button.home {
-    background-color: #426544;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-button.home a {
-    color: white;
-    text-decoration: none;
-}
-
-button.home:hover {
-    background-color: #69996c;
-}
-
-/* Botão do menu (aparece em telas menores) */
-.menu-toggle {
-    display: none;
-    font-size: 24px;
-    cursor: pointer;
-    background: none;
-    border: none;
-    color: white;
+/* Ajusta o menu na visualização desktop */
+@media (min-width: 768px) {
+    .nav {
+        display: flex; /* Sempre visível em telas maiores */
+        position: static; /* Retorna ao fluxo normal */
+        flex-direction: row; /* Links em linha */
+    }
 }
 
 /* Estilos responsivos */
@@ -132,6 +127,56 @@ button.home:hover {
         padding: 10px 0;
         font-size: 16px; /* Ajuste para melhor leitura */
     }
+}
+
+/* Estilo para o botão "Doe Agora" */
+.doe-agora {
+    background-color: #426544; /* Cor chamativa */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.doe-agora:hover {
+    background-color: #69996c; /* Cor mais escura no hover */
+}
+
+.doe-agora:active {
+    background-color: #69996c; /* Cor ainda mais escura no clique */
+}
+
+/* Botão de login/registro */
+button.home {
+    background-color: #426544;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button.home a {
+    color: white;
+    text-decoration: none;
+}
+
+button.home:hover {
+    background-color: #69996c;
+}
+
+/* Botão do menu (aparece em telas menores) */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
 }
 
 .header-right {
