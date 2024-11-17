@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doe.App</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
 </head>
 <body>
     <!-- Cabeçalho -->
@@ -13,71 +12,110 @@
         <div class="logo">
             <img src="Imagens/Logo-Doe.App.png" alt="Logo Doe.App">
         </div>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Digite para pesquisar..." aria-label="Digite para pesquisar">
+            <button id="searchButton" aria-label="Botão Pesquisar">Pesquisar</button>
+        </div>
+        <div class="container">
+            <button class="menu-toggle" aria-label="Abrir Menu">&#9776;</button>
+            <nav class="nav">
+                <a href="#campanhas" aria-label="Ir para campanhas">Campanhas</a>
+                <a href="#instituicoes" aria-label="Ir para instituições">Instituições</a>
+                <a href="#about" aria-label="Ir para Sobre">Sobre</a>
+                <a href="#contact" aria-label="Ir para Contato">Contato</a>
+            </nav>
+            <a href="#" id="back-to-top" class="top-link" aria-label="Voltar ao topo">&#9650;</a>
+        </div>
         <div class="header-right">
-            <div class="logado">
-                <button class="logado" onclick="window.location.href='perfil.html'">Fulano
-                    <img src="Imagens/Logado.jpg" alt="Logado" class="social-links">
-                </button>
-            </div>
-            <div class="logout">
-                <button class="logout" onclick="window.location.href='index.html'">
-                    <img src="Imagens/Logout.jpg" alt="Logout" class="social-links">
-                </button>
-            </div>
+            <button class="logon" onclick="window.location.href='perfil.html'" aria-label="Perfil">
+                Fulano <img src="Imagens/Logado.jpg" alt="Foto do perfil" class="social-icons">
+            </button>
+            <button class="logout" onclick="window.location.href='index.html'" aria-label="Sair">
+                <img src="Imagens/Logout.jpg" alt="Ícone de logout" class="social-icons">
+            </button>
         </div>
     </header>
 
-    <!-- Carrossel de Campanhas -->
+    <!-- Seção Campanhas -->
+    <div id="campanhas" class="title">
+        <h1>CAMPANHAS</h1>
+    </div>
     <section class="carousel">
         <div class="carousel-item">
             <h2>Campanha do Agasalho</h2>
             <a href="campanhas.html">
-            <img src="Imagens/Campanha do Agasalho.jpg" alt="Campanhas"></a>
+                <img src="Imagens/Campanha do Agasalho.jpg" alt="Campanhas">
+            </a>
             <p>Doação de roupas para quem precisa.</p>
         </div>
         <div class="carousel-item">
             <h2>Campanha do Alimento</h2>
             <a href="campanhas.html">
-            <img src="Imagens/Campanha do Alimento.jpg" alt="Campanhas"></a>
+                <img src="Imagens/Campanha do Alimento.jpg" alt="Campanhas">
+            </a>
             <p>Ajude com doações de alimentos.</p>
         </div>
         <div class="carousel-item">
             <h2>Campanha da Água</h2>
             <a href="campanhas.html">
-            <img src="Imagens/Campanha da Água.jpg" alt="Campanhas"></a>
+                <img src="Imagens/Campanha da Água.jpg" alt="Campanhas">
+            </a>
             <p>Doação de água mineral para regiões em necessidade.</p>
         </div>
     </section>
 
-    <!-- Seção Sobre -->
-    <section id="sobre" class="about-section">
-        <img src="Imagens/Logo-Doe.App.png" alt="Logo Doe.App">
-        <h3><p>O Doe.App é uma plataforma digital inovadora que conecta pessoas e empresas dispostas a ajudar a quem mais precisa por meio de campanhas de doações. Focada em promover a solidariedade, a plataforma facilita a conexão entre doadores — sejam pessoas físicas ou jurídicas — e instituições beneficentes de diversas áreas, como combate à fome, apoio a crianças, idosos, e iniciativas ambientais.</p>
-          <p>Funcionalidades:</p>
-          <p>Visualização de Campanhas de Doação: No Doe.App, é possível explorar uma lista de campanhas ativas criadas para arrecadar alimentos, roupas, recursos financeiros, entre outros itens. Cada campanha detalha o objetivo, a quantidade de doações já recebida e o prazo para contribuir. Isso permite que doadores escolham onde querem colaborar de acordo com suas causas de interesse.</p>
-          <p>Instituições Beneficiadas: O site disponibiliza uma lista de instituições que serão diretamente beneficiadas pelas campanhas. As organizações são verificadas e categorizadas por área de atuação, garantindo que as doações cheguem às mãos certas. Além disso, cada instituição tem um perfil com informações sobre sua missão, projetos em andamento e impacto gerado.</p> 
-          <p>Doadores: A plataforma valoriza a transparência e a criação de uma rede de apoio. Por isso, também oferece uma lista de doadores dispostos a ajudar, com a opção de cada um decidir se deseja aparecer publicamente ou manter o anonimato. Empresas podem se destacar como patrocinadoras de grandes campanhas, enquanto indivíduos podem contribuir de forma recorrente ou pontual.</p>  
-          <p>O Doe.App visa criar uma experiência intuitiva, onde a solidariedade se torna prática e acessível. Com o compromisso de facilitar o processo de doação e garantir que todas as partes envolvidas tenham a visibilidade e o suporte necessários, a plataforma fortalece o laço entre quem deseja doar e quem precisa receber.</p></h3>
+    <!-- Seção Instituições -->
+    <div id="instituicoes" class="title">
+        <h1>Cadastre sua Instituição e participe de uma Campanha</h1>
+    </div>
+    <section class="carousel">
+        <div class="carousel-item">
+            <img src="Imagens/Instituições.png" alt="Instituições">
+            <h2>Instituições</h2>
+            <p>Conheça as instituições que precisam da sua doação.</p>
+            <button onclick="window.location.href='instituicoes.html'">Ver Instituições</button>
+        </div>
+        <div class="carousel-item">
+            <img src="Imagens/Campanhas.jpeg" alt="Campanhas">
+            <h2>Campanhas</h2>
+            <p>Veja as campanhas ativas e faça sua parte.</p>
+            <button onclick="window.location.href='campanhas.html'">Ver Campanhas</button>
+        </div>
     </section>
 
-    </section>
-    <div id="about" class="about-section">
-      <img src="Imagens/Logo-Doe.App.png">
+    <!-- Seção Sobre -->
+    <div id="about" class="title">
+        <h1>Sobre o Doe.App</h1>
     </div>
-    <!-- Carrossel -->
-    <section class="carousel">
-      <div class="carousel-item" id="instituicoes">
-          <img src="Imagens/Instituições.png" alt="Instituições">
-          <h2>Instituições</h2>
-          <p>Conheça as instituições que precisam da sua doação.</p>
-          <button onclick="abrirInstituicoes()">Ver Instituições</button>
-      </div>
-      <div class="carousel-item" id="campanhas">
-          <img src="Imagens/Campanhas.jpeg" alt="Campanhas">
-          <h2>Campanhas</h2>
-          <p>Veja as campanhas ativas e faça sua parte.</p>
-          <button onclick="abrirCampanhas()">Ver Campanhas</button>
-      </div>
+    <section id="about" class="about-section">
+        <h3><p>O Doe.App é uma plataforma digital inovadora que conecta pessoas e empresas dispostas a ajudar a quem mais precisa por meio de campanhas de doações. Focada em promover a solidariedade, a plataforma facilita a conexão entre doadores — sejam pessoas físicas ou jurídicas — e instituições beneficentes de diversas áreas, como combate à fome, apoio a crianças, idosos, e iniciativas ambientais.</p>
+            <p>Funcionalidades:</p>
+            <p>Visualização de Campanhas de Doação: No Doe.App, é possível explorar uma lista de campanhas ativas criadas para arrecadar alimentos, roupas, recursos financeiros, entre outros itens. Cada campanha detalha o objetivo, a quantidade de doações já recebida e o prazo para contribuir. Isso permite que doadores escolham onde querem colaborar de acordo com suas causas de interesse.</p>
+            <p>Instituições Beneficiadas: O site disponibiliza uma lista de instituições que serão diretamente beneficiadas pelas campanhas. As organizações são verificadas e categorizadas por área de atuação, garantindo que as doações cheguem às mãos certas. Além disso, cada instituição tem um perfil com informações sobre sua missão, projetos em andamento e impacto gerado.</p> 
+            <p>Doadores: A plataforma valoriza a transparência e a criação de uma rede de apoio. Empresas podem se destacar como patrocinadoras de grandes campanhas, enquanto indivíduos podem contribuir de forma recorrente ou pontual.</p>  
+            <p>O Doe.App visa criar uma experiência intuitiva, onde a solidariedade se torna prática e acessível. Com o compromisso de facilitar o processo de doação e garantir que todas as partes envolvidas tenham a visibilidade e o suporte necessários, a plataforma fortalece o laço entre quem deseja doar e quem precisa receber.</p></h3>
+    </section>
+
+    <!-- Seção Contato -->
+    <div id="contact" class="title">
+        <h1>Contato</h1>
+    </div>
+    <section id="contact" class="contact-section">
+        <form id="contact-form" class="contact-form">
+            <div class="form-group">
+                <label for="name">Nome</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Mensagem</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
     </section>
 
     <!-- Rodapé -->
@@ -88,15 +126,45 @@
             <p>E-mail: contato@doeapp.com</p>
         </div>
     </footer>
+
     <!-- Código JavaScript embutido -->
     <script>
+        // Array de exemplo para pesquisa
+        const items = [
+            "Doe agora",
+            "Camapnhas",
+            "Instituições",
+            "Sobre o Doe.App",
+            "Contato",
+        ];
+
+        document.getElementById("searchButton").addEventListener("click", () => {
+            const searchInput = document.getElementById("searchInput").value.toLowerCase();
+            const results = document.getElementById("results");
+
+            // Limpar resultados anteriores
+            results.innerHTML = "";
+
+            // Filtrar os itens com base no valor de entrada
+            const filteredItems = items.filter(item =>
+                item.toLowerCase().includes(searchInput)
+            );
+
+            // Exibir resultados
+            if (filteredItems.length > 0) {
+                filteredItems.forEach(item => {
+                    const li = document.createElement("li");
+                    li.textContent = item;
+                    results.appendChild(li);
+                });
+            } else {
+                results.innerHTML = "<li>Nenhum resultado encontrado</li>";
+            }
+        });
+
         // Funções para navegação
         function abrirInstituicoes() {
             window.location.href = "instituicoes.html";
-        }
-
-        function abrirDoadores() {
-            window.location.href = "doadores.html";
         }
 
         function abrirCampanhas() {
@@ -119,26 +187,6 @@
             instituicoes.forEach((instituicao, index) => {
                 const li = document.createElement('li');
                 li.textContent = `${index + 1}. ${instituicao}`;
-                lista.appendChild(li);
-            });
-        }
-
-        // Funções similares para Doadores e Campanhas
-        let doadores = [];
-        document.getElementById('doadorForm')?.addEventListener('submit', function(event) {
-            event.preventDefault();
-            const nomeDoador = document.getElementById('nomeDoador').value;
-            doadores.push(nomeDoador);
-            atualizarListaDoadores();
-            alert('Doador cadastrado com sucesso!');
-        });
-
-        function atualizarListaDoadores() {
-            const lista = document.getElementById('listaDoadores');
-            lista.innerHTML = '';
-            doadores.forEach((doador, index) => {
-                const li = document.createElement('li');
-                li.textContent = `${index + 1}. ${doador}`;
                 lista.appendChild(li);
             });
         }
@@ -187,20 +235,97 @@
             }
         }
         
-        // Máscara de CPF e CNPJ
-        document.getElementById('cpf')?.addEventListener('input', function() {
-            let cpf = this.value.replace(/\D/g, '');
-            if (cpf.length > 11) cpf = cpf.slice(0, 11);
-            cpf = cpf.replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})(\d{1,2})$/, '$1-$2');
-            this.value = cpf;
+        document.getElementById("contact-form").addEventListener("submit", function (event) {
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        let hasError = false;
+
+        if (name === "") {
+            document.querySelector("#name + .error-message").style.display = "block";
+            hasError = true;
+        } else {
+            document.querySelector("#name + .error-message").style.display = "none";
+        }
+
+        if (!emailPattern.test(email)) {
+            document.querySelector("#email + .error-message").style.display = "block";
+            hasError = true;
+        } else {
+            document.querySelector("#email + .error-message").style.display = "none";
+        }
+
+        if (message === "") {
+            document.querySelector("#message + .error-message").style.display = "block";
+            hasError = true;
+        } else {
+            document.querySelector("#message + .error-message").style.display = "none";
+        }
+
+        if (hasError) {
+            event.preventDefault();
+        }
         });
 
-        document.getElementById('cnpj')?.addEventListener('input', function() {
-            let cnpj = this.value.replace(/\D/g, '');
-            if (cnpj.length > 14) cnpj = cnpj.slice(0, 14);
-            cnpj = cnpj.replace(/(\d{2})(\d)/, '$1.$2').replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})(\d)/, '$1/$2').replace(/(\d{4})(\d{1,2})$/, '$1-$2');
-            this.value = cnpj;
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+        document.querySelector('.nav').classList.toggle('active');
         });
+
+        document.addEventListener("DOMContentLoaded", () => {
+        const backToTop = document.getElementById("back-to-top");
+        let isScrolling;
+
+        // Mostrar o botão de topo após scroll
+        window.addEventListener("scroll", () => {
+            clearTimeout(isScrolling);
+            isScrolling = setTimeout(() => {
+                if (window.scrollY > 100) {
+                    backToTop.style.display = "block";
+                } else {
+                    backToTop.style.display = "none";
+                }
+            }, 200);
+        });
+
+        // Validação em tempo real no formulário
+        document.getElementById("contact-form").addEventListener("submit", (event) => {
+            const name = document.getElementById("name");
+            const email = document.getElementById("email");
+            const message = document.getElementById("message");
+
+            let hasError = false;
+
+            if (!name.value.trim()) {
+                name.nextElementSibling.style.display = "block";
+                hasError = true;
+            } else {
+                name.nextElementSibling.style.display = "none";
+            }
+
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+                email.nextElementSibling.style.display = "block";
+                hasError = true;
+            } else {
+                email.nextElementSibling.style.display = "none";
+            }
+
+            if (!message.value.trim()) {
+                message.nextElementSibling.style.display = "block";
+                hasError = true;
+            } else {
+                message.nextElementSibling.style.display = "none";
+            }
+
+            if (hasError) event.preventDefault();
+        });
+    });
+
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+    document.querySelector('.nav').classList.toggle('active');
+    });
+
     </script>
 </body>
 </html>

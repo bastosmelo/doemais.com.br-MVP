@@ -1,125 +1,319 @@
 /* Estilos gerais */
 body {
     font-family: Arial, sans-serif;
-    background-color: #69996c; /* Verde balanceado */
+    line-height: 1.6;
+    color: #333;
     margin: 0;
     padding: 0;
-    color: white;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
 }
 
 /* Cabeçalho */
 header {
     display: flex;
+    flex-wrap: wrap; /* Permite que os elementos quebrem para novas linhas */
     justify-content: space-between;
     align-items: center;
-    height: 50px;
-    padding: 20px;
-    background-color: #426544; /* Cor de fundo para o cabeçalho */
+    background-color: #426544;
+    padding: 10px 20px;
+    top: 0;
+    z-index: 1000;
+    height: auto; /* Permite altura flexível */ 
 }
 
 .logo img {
-    width: 300px;
+    max-width: 200px;
+    height: auto;
 }
 
-.home-button {
-    background-color: #426544;  /* Cor de fundo */
-    color: white;               /* Cor do texto */
-    border: none;               /* Remove bordas */
-    padding: 10px 20px;         /* Espaçamento interno */
-    text-align: center;         /* Centraliza o texto */
-    text-decoration: none;      /* Remove sublinhado do link */
-    display: inline-block;
-    font-size: 16px;            /* Tamanho do texto */
-    border-radius: 10px;         /* Bordas arredondadas */
-    cursor: pointer;            /* Cursor de "mão" ao passar por cima */
+/* Barra de pesquisa */
+.search-container {
+    flex: 0.5; /* Ocupar espaço disponível */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 100%; /* Impede que ultrapasse os limites */
+    margin: 10px 0;
 }
 
-.home-button a {
-    color: white;               /* Cor do texto */
-    text-decoration: none;      /* Remove sublinhado */
+.search-container input {
+    flex: 1;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
-.home-button:hover {
-    background-color: #69996c;  /* Muda a cor ao passar o mouse */
+.search-container button {
+    padding: 5px 10px;
+    background-color: #69996c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
+/* Navegação */
+.nav {
+    display: flex;
+    gap: 15px;
+}
+
+.nav a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.nav a:hover {
+    text-decoration: underline;
+}
+
+/* Botão de login/registro */
 button.home {
-    background-color: #426544;  /* Cor de fundo */
-    color: white;               /* Cor do texto */
-    border: none;               /* Remove bordas */
-    padding: 10px 20px;         /* Espaçamento interno */
-    text-align: center;         /* Centraliza o texto */
-    text-decoration: none;      /* Remove sublinhado do link */
-    display: inline-block;
-    font-size: 16px;            /* Tamanho do texto */
-    border-radius: 8px;         /* Bordas arredondadas */
-    cursor: pointer;            /* Cursor de "mão" ao passar por cima */
+    background-color: #426544;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
 }
 
-/* Estilo do link dentro do botão */
 button.home a {
-    color: white;               /* Cor do texto */
-    text-decoration: none;      /* Remove sublinhado */
+    color: white;
+    text-decoration: none;
 }
 
-/* Estilo do botão ao passar o mouse */
 button.home:hover {
-    background-color: #69996c;  /* Muda a cor ao passar o mouse */
+    background-color: #69996c;
 }
 
-/* Botão Voltar */
-.back-button {
-    background-color: #426544;  /* Cor de fundo */
-    color: white;               /* Cor do texto */
-    border: none;               /* Remove bordas */
-    padding: 10px 20px;         /* Espaçamento interno */
-    text-align: center;         /* Centraliza o texto */
-    text-decoration: none;      /* Remove sublinhado do link */
-    display: inline-block;
-    font-size: 16px;            /* Tamanho do texto */
-    border-radius: 8px;         /* Bordas arredondadas */
-    cursor: pointer;            /* Cursor de "mão" ao passar por cima */
+/* Botão do menu (aparece em telas menores) */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
 }
 
-.back-button:hover {
-    background-color: #69996c;  /* Muda a cor ao passar o mouse */
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .menu-toggle {
+        display: block; /* Exibe o botão de menu em telas menores */
+        align-self: flex-end;
+    }
+
+    .nav {
+        display: none; /* Esconde o menu inicialmente */
+        flex-direction: column;
+        gap: 10px;
+        background-color: #426544;
+        width: 100%;
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .nav.active {
+        display: flex; /* Exibe o menu quando ativo */
+    }
+
+    .search-container {
+        width: 100%; /* Garante que a barra de pesquisa ocupe toda a largura */
+    }
+
+    .nav a {
+        padding: 10px 0;
+        font-size: 16px; /* Ajuste para melhor leitura */
+    }
 }
 
 .header-right {
     display: flex;
-    align-items: center;
+    gap: 10px;
 }
 
-button.logado, button.logout {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #426544;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    padding: 5px;
-    cursor: pointer;
-}
-
-button.logado img, button.logout img {
-    margin-left: 10px;
+.header-right .social-icons {
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    border: 1px solid #333;
+}
+
+/* Estilo para seções */
+.title {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.carousel {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.carousel-item {
+    max-width: 300px;
+    text-align: center;
+}
+
+.carousel-item img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.about-section, .contact-section {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input, .contact-form textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+footer {
+    background-color: #426544;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    font-size: 12px;
+    height: 90px; /* Define um tamanho fixo */
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Botão Voltar ao Topo */
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #426544;
+    color: #fff;
+    padding: 12px;
+    border-radius: 50%;
+    font-size: 18px;
+    display: none;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#back-to-top:hover {
+    background-color: #69996c;
+    transform: scale(1.1);
+}
+
+/* Estilos Responsivos */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .header-right {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .carousel {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .carousel-item {
+        width: 90%;
+    }
+
+    .about-section, .contact-section {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo img {
+        max-width: 100px;
+    }
+
+    .nav a {
+        font-size: 14px;
+        padding: 5px;
+    }
+
+    .contact-form input, .contact-form textarea {
+        font-size: 14px;
+    }
+
+    footer {
+        font-size: 12px;
+    }
+}
+
+
+button.logon, button.logout, .social-icons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #426544;
+    border: none;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+}
+
+button.logon img, button.logout img, .social-icons img {
+    margin-left: 0px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 0px solid #333;
+}
+
+.title {
+    color: #426544;
+    padding: 5px;
+    text-align: center;
 }
 
 /* Carrossel */
+.campanhas{
+    color: #426544;
+    padding: 5px;
+    text-align: center;
+}
+
 .carousel {
     display: flex;
     overflow-x: auto;
-    padding: 20px;
+    padding: 5px;
     gap: 20px;
     justify-content: center;
     flex-wrap: wrap;
@@ -127,7 +321,7 @@ button.logado img, button.logout img {
 
 .carousel-item {
     background-color: white;
-    color: black;
+    color: #426544;
     border-radius: 10px;
     padding: 20px;
     text-align: center;
@@ -156,8 +350,8 @@ button.logado img, button.logout img {
 /* Seção Sobre */
 .about-section {
     text-align: justify;
-    color: white;
-    padding: 20px;
+    color: #69996c;
+    padding: 5px;
     max-width: 1000px;
     margin: 0 auto;
 }
@@ -166,6 +360,48 @@ button.logado img, button.logout img {
     width: 20%;
     display: block;
     margin: 20px auto;
+}
+
+/* Seção Contato */
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 2px;
+    color: #426544;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 95%;
+    padding: 10px;
+    border: 2px solid #426544;
+    border-radius: 10px;
+}
+
+.error-message {
+    display: none;
+    color: red;
+    font-size: 0.85rem;
+    margin-top: 10px;
+}
+
+/* Responsividade da Seção Contato */
+@media (max-width: 768px) {
+    .contact-form {
+        padding: 20px;
+    }
 }
 
 /* Rodapé */
@@ -264,9 +500,7 @@ footer a {
     }
 }
 
-
 /* Campanhas */ 
-
 .campaign-image-section img {
     max-width: 100%;
     height: auto;
@@ -312,7 +546,6 @@ footer a {
     cursor: pointer;
 }
 
-
 .perfil-section {
     padding: 20px;
     background-color: white;
@@ -343,7 +576,6 @@ footer a {
     border-radius: 5px;
     cursor: pointer;
 }
-
 
 .form-section {
     color: #333333;
@@ -429,11 +661,9 @@ h2 {
     margin-bottom: 20px;
 }
 
-
 .institution-detail{
     text-align: center;
 }
-
 
 /* Estilização para o formulário de doação */
 .form-section form {
@@ -497,5 +727,3 @@ h2 {
         padding: 10px;
     }
 }
-
-
