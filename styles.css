@@ -322,7 +322,6 @@ footer a {
     }
 }
 
-
 button.logon, button.logout, .social-icons {
     display: flex;
     align-items: center;
@@ -334,7 +333,7 @@ button.logon, button.logout, .social-icons {
     cursor: pointer;
 }
 
-button.logon img, button.logout img, .social-icons img {
+button.logon img, button.logout img, .social-icons img, {
     margin-left: 0px;
     width: 30px;
     height: 30px;
