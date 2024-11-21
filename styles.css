@@ -64,14 +64,16 @@ header {
 /* Navegação */
 /* Esconde o menu por padrão em dispositivos pequenos */
 .nav {
-    display: flex;
-    flex-direction: column; /* Deixa os itens em coluna */
-    background-color: #426544; /* Cor de fundo opcional */
-    position: absolute;
-    top: 50px; /* Ajuste conforme o layout */
-    right: 0;
-    gap: 15px;
-    z-index: 1000; /* Certifique-se de que está sobre os outros elementos */
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #426544; 
+    transition: all 0.3s ease-in-out;
 }
 
 /* Exibe o menu quando a classe 'active' é adicionada */
@@ -90,6 +92,17 @@ header {
 .nav a:hover {
     text-decoration: underline;
     text-decoration-thickness: 2px;
+}
+
+/* Botão do menu (aparece em telas menores) */
+.menu-toggle {
+    font-size: 2rem;
+    display: none;
+    font-size: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
 }
 
 /* Ajusta o menu na visualização desktop */
@@ -150,16 +163,6 @@ header {
 
 .doe-agora:hover {
     background-color: #69996c;
-}
-
-/* Botão do menu (aparece em telas menores) */
-.menu-toggle {
-    display: none;
-    font-size: 20px;
-    cursor: pointer;
-    background: none;
-    border: none;
-    color: white;
 }
 
 h1 {
