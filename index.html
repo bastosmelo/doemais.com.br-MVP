@@ -15,6 +15,7 @@
         <div class="search-container">
             <input type="text" id="searchInput" placeholder="Digite para pesquisar..." aria-label="Digite para pesquisar">
             <button id="searchButton" aria-label="Botão Pesquisar">Pesquisar</button>
+            <button id="clearButton" aria-label="Botão Limpar">Limpar</button>
         </div>
         <div class="header-right">
             <button class="doe-agora" onclick="doarAgora()" aria-label="Doe Agora">Doe Agora</button>
@@ -91,29 +92,41 @@
         <p>Doadores: A plataforma valoriza a transparência e a criação de uma rede de apoio. Empresas podem se destacar como patrocinadoras de grandes campanhas, enquanto indivíduos podem contribuir de forma recorrente ou pontual.</p>  
         <p>O Doe.App visa criar uma experiência intuitiva, onde a solidariedade se torna prática e acessível. Com o compromisso de facilitar o processo de doação e garantir que todas as partes envolvidas tenham a visibilidade e o suporte necessários, a plataforma fortalece o laço entre quem deseja doar e quem precisa receber.</p></h3>
     </section>
-    
-    <!-- Seção Contato -->
-    <div id="contact" class="title">
-        <h1>Contato</h1>
-    </div>
-    <section id="contact" class="contact-section">
-        <form id="contact-form" class="contact-form">
-            <div class="form-group">
-                <label for="name">Nome</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">E-mail</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Mensagem</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-            </div>
-            <button type="submit">Enviar</button>
-        </form>
-    </section>
-    
+
+<!-- Seção Contato -->
+<div id="contact" class="contact-form">
+    <h1>Contato</h1>
+    <form id="contact-form">
+        <div class="form-group">
+            <label for="name">Nome</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="subject">Assunto</label>
+            <select id="subject" name="subject" required>
+                <option value="" disabled selected>Selecione o assunto</option>
+                <option value="login">Login</option>
+                <option value="senha">Senha</option>
+                <option value="doacao">Como Doar</option>
+                <option value="cadastro">Como cadastrar sua Instituição</option>
+                <option value="campanha">Como cadastrar sua campanha</option>
+                <option value="duvidas">Dúvidas</option>
+                <option value="elogios">Elogios</option>
+                <option value="sugestoes">Sugestões</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="message">Mensagem</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit">Enviar</button>
+    </form>
+</div>
+
     <!-- Rodapé -->
     <footer>
         <a href="squad11.html">Squad 11 © 2024. Todos os direitos reservados.</a>
@@ -322,6 +335,61 @@
     document.querySelector('.nav').classList.toggle('active');
     });
 
+
+    /* Acões do Botão Pesquisar e Limpar */
+    let originalHTML = {};
+
+    // Armazena o HTML original de todos os elementos no início
+    function storeOriginalContent() {
+        originalHTML = {};
+        const allElements = document.querySelectorAll("body *");
+        allElements.forEach((element, index) => {
+            if (element.childNodes.length > 0 && element.nodeName !== "SCRIPT" && element.nodeName !== "STYLE") {
+                originalHTML[index] = element.innerHTML;
+            }
+        });
+    }
+
+    // Restaura o HTML original para todos os elementos
+    function restoreOriginalContent() {
+        const allElements = document.querySelectorAll("body *");
+        allElements.forEach((element, index) => {
+            if (originalHTML[index]) {
+                element.innerHTML = originalHTML[index];
+            }
+        });
+    }
+
+    // Realça o texto em todo o site
+    function highlightText(searchTerm) {
+        restoreOriginalContent(); // Limpa realces anteriores
+        const allElements = document.querySelectorAll("body *");
+        allElements.forEach((element) => {
+            if (element.childNodes.length > 0 && element.nodeName !== "SCRIPT" && element.nodeName !== "STYLE") {
+                element.innerHTML = element.innerHTML.replace(
+                    new RegExp(`(${searchTerm})`, "gi"),
+                    `<span class="highlight">$1</span>`
+                );
+            }
+        });
+    }
+
+    // Evento de pesquisa
+    document.getElementById("searchButton").addEventListener("click", () => {
+        const searchInput = document.getElementById("searchInput").value.trim();
+        if (searchInput) {
+            highlightText(searchInput);
+        }
+    });
+
+    // Evento de limpar
+    document.getElementById("clearButton").addEventListener("click", () => {
+        restoreOriginalContent();
+        document.getElementById("searchInput").value = ""; // Limpa o campo de pesquisa
+    });
+
+    // Inicializa o armazenamento do conteúdo original ao carregar a página
+    document.addEventListener("DOMContentLoaded", storeOriginalContent);
     </script>
 </body>
 </html>

@@ -10,29 +10,28 @@ body {
 /* Cabeçalho */
 header {
     display: flex;
-    flex-wrap: wrap; /* Permite que os elementos quebrem para novas linhas */
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     background-color: #426544;
-    padding: 10px 20px;
+    padding: 5px 10px; /* Diminuir o preenchimento para reduzir o tamanho */
     top: 0;
     z-index: 1000;
-    height: auto; /* Permite altura flexível */ 
 }
 
+/* Logo */
 .logo img {
-    max-width: 200px;
+    max-width: 150px; /* Reduz o tamanho máximo da logo */
     height: auto;
 }
 
 /* Barra de pesquisa */
 .search-container {
-    flex: 0.5; /* Ocupar espaço disponível */
+    flex: 0.5;
     display: flex;
     align-items: center;
-    gap: 10px;
-    max-width: 100%; /* Impede que ultrapasse os limites */
-    margin: 10px 0;
+    gap: 5px; /* Reduzir o espaçamento entre os elementos */
+    margin: 5px 0;
 }
 
 .search-container input {
@@ -43,12 +42,23 @@ header {
 }
 
 .search-container button {
-    padding: 5px 10px;
-    background-color: #69996c;
+    padding: 5px 8px;
+    background-color: #426544;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 14px; /* Diminuir a fonte */
+}
+
+.search-container button:hover {
+    background-color: #69996c;
+}
+
+.highlight {
+    background-color: yellow;
+    color: black;
+    font-weight: bold;
 }
 
 /* Navegação */
@@ -60,9 +70,8 @@ header {
     position: absolute;
     top: 50px; /* Ajuste conforme o layout */
     right: 0;
-    width: auto; /* Largura do menu */
-    z-index: 1000; /* Certifique-se de que está sobre os outros elementos */
     gap: 15px;
+    z-index: 1000; /* Certifique-se de que está sobre os outros elementos */
 }
 
 /* Exibe o menu quando a classe 'active' é adicionada */
@@ -73,15 +82,14 @@ header {
 /* Estilo opcional para os links dentro do menu */
 .nav a {
     color: white;
-    padding: 10px;
-    text-align: center;
     text-decoration: none;
     padding: 5px 10px;
-    font-size: 14px;
+    font-size: 14px; /* Reduzir o tamanho da fonte */
 }
 
 .nav a:hover {
-    background-color: underline;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
 }
 
 /* Ajusta o menu na visualização desktop */
@@ -102,14 +110,12 @@ header {
 
     .menu-toggle {
         display: block; /* Exibe o botão de menu em telas menores */
-        align-self: flex-end;
     }
 
     .nav {
         display: none; /* Esconde o menu inicialmente */
         flex-direction: column;
         gap: 10px;
-        background-color: #426544;
         width: 100%;
         padding: 10px 0;
         text-align: center;
@@ -121,32 +127,81 @@ header {
 
     .search-container {
         width: 100%; /* Garante que a barra de pesquisa ocupe toda a largura */
+        margin: 5px 0; /* Reduz margem vertical */
     }
 
     .nav a {
         padding: 10px 0;
-        font-size: 16px; /* Ajuste para melhor leitura */
+        font-size: 12px; /* Ajuste para melhor leitura */
     }
 }
 
-/* Estilo para o botão "Doe Agora" */
+/* Botão "Doe Agora" */
 .doe-agora {
-    background-color: #426544; /* Cor chamativa */
+    background-color: #426544;
     color: white;
     border: none;
     border-radius: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 10px 20px; /* Diminuir o preenchimento */
+    font-size: 14px; /* Diminuir a fonte */
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .doe-agora:hover {
-    background-color: #69996c; /* Cor mais escura no hover */
+    background-color: #69996c;
 }
 
-.doe-agora:active {
-    background-color: #69996c; /* Cor ainda mais escura no clique */
+/* Botão do menu (aparece em telas menores) */
+.menu-toggle {
+    display: none;
+    font-size: 20px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: white;
+}
+
+h1 {
+    color: #426544;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Botão centralizado e estilizado */
+.contact-form button {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    color: white;
+    background-color: #426544;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+/* Hover para o botão */
+.contact-form button:hover {
+    background-color: #69996c;
+}
+
+/* Centralização */
+.contact-form button {
+    display: block;
+    margin: 20px auto;
+}
+
+/* Estilo para o select */
+.contact-form select {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #426544;
+    border-radius: 10px;
+    background-color: #fff;
+    color: #333;
+    font-size: 1rem;
 }
 
 /* Botão de login/registro */
@@ -169,16 +224,6 @@ button.home:hover {
     background-color: #69996c;
 }
 
-/* Botão do menu (aparece em telas menores) */
-.menu-toggle {
-    display: none;
-    font-size: 24px;
-    cursor: pointer;
-    background: none;
-    border: none;
-    color: white;
-}
-
 .header-right {
     display: flex;
     gap: 10px;
@@ -190,23 +235,24 @@ button.home:hover {
     border-radius: 50%;
 }
 
-/* Estilo para seções */
-.title {
-    text-align: center;
-    margin: 20px 0;
-}
+
+/* Até aqui está OK */
 
 .carousel {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 20px;
     justify-content: center;
     padding: 20px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-height: 600px;
 }
 
 .carousel-item {
     max-width: 300px;
     text-align: center;
+    flex: 0 0 auto;
 }
 
 .carousel-item img {
@@ -267,11 +313,6 @@ footer a {
 
 /* Estilos Responsivos */
 @media (max-width: 768px) {
-    header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
     .menu-toggle {
         display: block;
     }
@@ -331,14 +372,6 @@ button.logon, button.logout, .social-icons {
     color: white;
     padding: 15px;
     cursor: pointer;
-}
-
-button.logon img, button.logout img, .social-icons img, {
-    margin-left: 0px;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    border: 0px solid #333;
 }
 
 .title {
@@ -408,12 +441,12 @@ button.logon img, button.logout img, .social-icons img, {
 
 /* Seção Contato */
 .contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: white;
-    padding: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 30px;
     border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .form-group {
