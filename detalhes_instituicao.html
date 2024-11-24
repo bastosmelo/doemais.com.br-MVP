@@ -7,11 +7,15 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body onload="carregarDetalhesInstituicao()">
+    
+    <!-- Cabeçalho -->
     <header>
-        <h1>Detalhes da Instituição</h1>
-        <div class="header-buttons">
-            <button class="back-button" onclick="voltarPagina()">Voltar</button>
-            <button class="home-button" onclick="voltarHome()">Home</button>
+        <div class="logo">
+            <img src="Imagens/Logo-Doe.App.png" alt="Logo Doe.App">
+        </div>
+            <div class="header-buttons">
+            <button class="home" onclick="voltarPagina()">Voltar</button>
+            <button class="home" onclick="voltarHome()">Home</button>
         </div>
     </header>
 
@@ -24,7 +28,7 @@
         <p id="telefoneInstituicao"></p>
         <p id="doacoesNecessarias"></p>
         <p id="campanhaVinculada"></p>
-        <button onclick="doarAgora()">Doe Agora</button>
+        <button class="home" onclick="doarAgora()">Doe Agora</button>
     </section>
 
     <script>

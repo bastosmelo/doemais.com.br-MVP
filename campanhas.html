@@ -14,7 +14,7 @@
         <div class="logo">
             <img src="Imagens/Logo-Doe.App.png" alt="Logo Doe.App">
         </div>
-            <button class="home-button" onclick="voltarHome()">Home</button>
+            <button class="home" onclick="voltarHome()">Home</button>
     </header>
 
     <section class="institutions">
@@ -28,7 +28,7 @@
         <p id="campanhaDescricao"></p>
     </section>
 
-    <button onclick="doarAgora()">Doe Agora</button>
+    <button class="home" onclick="doarAgora()">Doe Agora</button>
 
     <script>
         // Função para carregar os detalhes da campanha a partir do localStorage
@@ -52,14 +52,8 @@
             });
         }
 
-        // Função para verificar login e redirecionar para doação
         function doarAgora() {
-            const usuarioLogado = localStorage.getItem('usuarioLogado');
-            if (!usuarioLogado) {
-                window.location.href = 'login.html';
-            } else {
-                window.location.href = 'doacao.html';
-            }
+            alert('Redirecionando para doação...');
         }
 
         // Função para voltar à página inicial

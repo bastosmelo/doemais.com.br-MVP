@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doe.App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="logo">
+            <img src="Imagens/Logo-Doe.App.png" alt="Logo Doe.App">
+        </div>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Digite para pesquisar..." aria-label="Digite para pesquisar">
+            <button id="searchButton" aria-label="Botão Pesquisar">Pesquisar</button>
+        </div>
+        <div class="header-right">
+            <button class="doe-agora" onclick="doarAgora()" aria-label="Doe Agora">Doe Agora</button>
+        </div>
+        <div class="container">
+            <button class="menu-toggle" aria-label="Abrir Menu">&#9776;</button>
+            <nav class="nav">
+                <a href="#campanhas" aria-label="Ir para campanhas">Campanhas</a>
+                <a href="#instituicoes" aria-label="Ir para instituições">Instituições</a>
+                <a href="#about" aria-label="Ir para Sobre">Sobre</a>
+                <a href="#contact" aria-label="Ir para Contato">Contato</a>
+            </nav>
+            <a href="#" id="back-to-top" class="top-link" aria-label="Voltar ao topo">&#9650;</a>
+        </div>
+        <div class="header-right">
+            <button class="logon" onclick="window.location.href='perfil.html'" aria-label="Perfil">
+                Fulano <img src="Imagens/Logado.jpg" alt="Foto do perfil" class="social-icons">
+            </button>
+            <button class="logout" onclick="window.location.href='index.html'" aria-label="Sair">
+                <img src="Imagens/Logout.jpg" alt="Ícone de logout" class="social-icons">
+            </button>
+        </div>
+    </header>
+</body>
+</html>

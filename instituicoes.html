@@ -9,11 +9,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 </head>
 <body onload="carregarInstituicoes()">
+    <!-- Cabeçalho -->
     <header>
-        <h1>Cadastro de Instituições</h1>
-        <button class="home-button" onclick="voltarHome()">Home</button>
+        <div class="logo">
+            <img src="Imagens/Logo-Doe.App.png" alt="Logo Doe.App">
+        </div>
+        <div class="home">
+            <button class="home">
+                <a class="home" href="index.html">Home</a>
+            </button>
+        </div>
     </header>
-
     <section class="list-section">
         <h2>Instituições Cadastradas</h2>
         <ul id="listaInstituicoes"></ul> <!-- Lista de instituições -->
