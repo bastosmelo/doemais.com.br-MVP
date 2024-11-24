@@ -128,7 +128,7 @@
             </div>
 
             <!-- Botão de Cadastro -->
-            <button type="submit" class="btn-cadastrar" style="display: none;">Cadastrar</button>
+            <a id="cadastrar" href="index2.html">Cadastrar</a>
             <p class="login-link">Já tem uma conta? <a href="login.html">Entrar</a></p>
         </form>
     </div>
@@ -219,6 +219,21 @@
               alert('Por favor, insira um e-mail válido.');
             }
          });
+        
+         document.addEventListener('DOMContentLoaded', function () {
+            const pessoaFisicaRadio = document.getElementById('pessoaFisica');
+            const pessoaJuridicaRadio = document.getElementById('pessoaJuridica');
+            const botaoCadastrar = document.getElementById('cadastrar');
+
+            // Função para mostrar o botão quando uma opção for selecionada
+            function mostrarBotao() {
+                botaoCadastrar.style.display = 'block'; // Mostra o botão
+            }
+
+            // Adiciona eventos para as opções de tipo de pessoa
+            pessoaFisicaRadio.addEventListener('change', mostrarBotao);
+            pessoaJuridicaRadio.addEventListener('change', mostrarBotao);
+        });
     </script>
 </body>
 </html>

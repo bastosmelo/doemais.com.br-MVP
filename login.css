@@ -9,15 +9,26 @@ body {
 /* Estilo do Header */
 header {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    height: 50px;
-    padding: 20px;
     background-color: #426544;
+    padding: 5px 10px; /* Diminuir o preenchimento para reduzir o tamanho */
+    top: 0;
+    z-index: 1000;
+    height: 50px;
+}
+
+/* Logo */
+.logo {
+    background-color: #426544; /* Mesma cor do cabeçalho */
+    border-radius: 10px; /* Opcional: bordas arredondadas */
 }
 
 .logo img {
-    height: 300px;
+    display: block; /* Remove espaços indesejados ao redor da imagem */
+    max-width: 150px; /* Limita o tamanho da logo */
+    height: auto;
 }
 
 button.home {

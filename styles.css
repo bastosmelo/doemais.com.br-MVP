@@ -20,8 +20,14 @@ header {
 }
 
 /* Logo */
+.logo {
+    background-color: #426544; /* Mesma cor do cabeçalho */
+    border-radius: 10px; /* Opcional: bordas arredondadas */
+}
+
 .logo img {
-    max-width: 150px; /* Reduz o tamanho máximo da logo */
+    display: block; /* Remove espaços indesejados ao redor da imagem */
+    max-width: 150px; /* Limita o tamanho da logo */
     height: auto;
 }
 
@@ -464,10 +470,17 @@ button.logon, button.logout, .social-icons {
 
 .form-group input,
 .form-group textarea {
-    width: 95%;
-    padding: 10px;
-    border: 2px solid #426544;
-    border-radius: 10px;
+  width: 100%; /* Faz os campos ocuparem toda a largura disponível */
+  max-width: 400px; /* Define um tamanho máximo */
+  padding: 10px;
+  border: 2px solid #426544;
+  border-radius: 10px;
+  box-sizing: border-box; /* Garante que o padding não aumente a largura */
+}
+
+.form-group textarea {
+  resize: none; /* Impede o redimensionamento */
+  height: 50px; /* Ajuste a altura para ficar proporcional */
 }
 
 .error-message {
