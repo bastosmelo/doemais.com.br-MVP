@@ -5,70 +5,210 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doe.App - Campanhas</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilo para o carrossel */
+        .carousel {
+            position: relative;
+            width: 100%;
+            max-width: 900px; /* Define a largura máxima */
+            height: 500px;    /* Define a altura fixa do carrossel */
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            background-color: white; /* Fundo padrão para o carrossel */
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            background: white;
+        }
+
+        .carousel-slide img {
+            width: 50%;
+            height: 50%;
+            object-fit: cover;    /* Preenche o contêiner mantendo a proporção da imagem */
+            background-color: white;
+        }
+
+        .carousel-slide h2 {
+            margin: 10px 0;
+        }
+
+        .carousel-slide p {
+            margin: 10px 20px;
+        }
+
+        /* Botões de navegação */
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            font-size: 2rem;
+            padding: 5px 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .carousel-button.prev {
+            background-color: #426544;
+            left: 10px;
+        }
+
+        .carousel-button.prev:hover {
+            background-color: #69996c;
+        }
+
+        .carousel-button.next {
+            background-color: #426544;
+            right: 10px;
+        }
+
+        .carousel-button.next:hover {
+            background-color: #69996c;
+            right: 10px;
+        }
+
+        /* Indicadores */
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .carousel-indicator {
+            width: 10px;
+            height: 10px;
+            background: #ccc;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .carousel-indicator.active {
+            background: #555;
+        }
+        
+    </style>
 </head>
 
-<body onload="carregarCampanha()">
+<body onload="carregarCarrossel()">
 
     <!-- Cabeçalho -->
     <header>
         <div class="logo">
             <img src="Imagens/Logo-Doe.App.png" alt="Logo Doe.App">
         </div>
-            <button class="home" onclick="voltarHome()">Home</button>
+        <button class="home" onclick="voltarHome()">Home</button>
     </header>
 
-    <section class="institutions">
-        <h1>Detalhes da Campanha</h1>
-        <div id="listaInstituicoes"></div>
+    <!-- Carrossel -->
+    <section class="carousel">
+        <button class="carousel-button prev" onclick="navegarCarrossel(-1)">&#10094;</button>
+        <div class="carousel-track" id="carouselTrack"></div>
+        <button class="carousel-button next" onclick="navegarCarrossel(1)">&#10095;</button>
     </section>
 
-    <section class="campaign-detail">
-        <img id="campanhaImagem" alt="Imagem da Campanha">
-        <h2 id="campanhaNome"></h2>
-        <p id="campanhaDescricao"></p>
-    </section>
-
-    <button class="home" onclick="doarAgora()">Doe Agora</button>
+    <!-- Indicadores -->
+    <div class="carousel-indicators" id="carouselIndicators"></div>
 
     <script>
-        // Função para carregar os detalhes da campanha a partir do localStorage
-        function carregarCampanha() {
-            const nome = localStorage.getItem('campanhaNome');
-            const imagem = localStorage.getItem('campanhaImagem');
-            const descricao = localStorage.getItem('campanhaDescricao');
-            const instituicoes = JSON.parse(localStorage.getItem('campanhaInstituicoes')) || [];
+        const campanhas = [
+            {
+                nome: "Campanha do Agasalho",
+                imagem: "Imagens/Campanha do Agasalho.jpg",
+                descricao: "Campanha para arrecadação de agasalhos para comunidades carentes.",
+            },
+            {
+                nome: "Campanha do Alimento",
+                imagem: "Imagens/Campanha do Alimento.jpg",
+                descricao: "Campanha para arrecadação de alimentos para famílias necessitadas.",
+            },
+            {
+                nome: "Campanha da Água",
+                imagem: "Imagens/Campanha da Água.jpg",
+                descricao: "Arrecadação de fundos para fornecer água potável a áreas necessitadas.",
+            },
+            {
+                nome: "Ajuda aos Animais",
+                imagem: "Imagens/campanha-animais.jpg",
+                descricao: "Campanha voltada para proteção e cuidado de animais abandonados.",
+            },
+            {
+                nome: "Educação para Todos",
+                imagem: "Imagens/campanha-educacao.jpg",
+                descricao: "Doe para proporcionar acesso à educação para comunidades carentes.",
+            }
+        ];
 
-            document.getElementById('campanhaNome').textContent = nome;
-            document.getElementById('campanhaImagem').src = imagem;
-            document.getElementById('campanhaDescricao').textContent = descricao;
+        let currentSlide = 0;
 
-            const instituicoesContainer = document.getElementById('listaInstituicoes');
-            instituicoesContainer.innerHTML = '';
-            instituicoes.forEach(instituicao => {
-                const div = document.createElement('div');
-                div.classList.add('institution-card');
-                div.innerHTML = `<h3>${instituicao.nome}</h3><p>${instituicao.descricao}</p>`;
-                instituicoesContainer.appendChild(div);
+        function carregarCarrossel() {
+            const track = document.getElementById('carouselTrack');
+            const indicators = document.getElementById('carouselIndicators');
+            track.innerHTML = '';
+            indicators.innerHTML = '';
+
+            campanhas.forEach((campanha, index) => {
+                // Slide do carrossel
+                const slide = document.createElement('div');
+                slide.classList.add('carousel-slide');
+                slide.innerHTML = `
+                    <img src="${campanha.imagem}" alt="${campanha.nome}">
+                    <h2>${campanha.nome}</h2>
+                    <p>${campanha.descricao}</p>
+                    <button onclick="selecionarCampanha('${campanha.nome}', '${campanha.imagem}', '${campanha.descricao}')">Ver Detalhes</button>
+                `;
+                track.appendChild(slide);
+
+                // Indicador
+                const indicator = document.createElement('div');
+                indicator.classList.add('carousel-indicator');
+                if (index === 0) indicator.classList.add('active');
+                indicator.onclick = () => navegarParaSlide(index);
+                indicators.appendChild(indicator);
             });
         }
 
-        function doarAgora() {
-            alert('Redirecionando para doação...');
+        function navegarCarrossel(direction) {
+            const track = document.getElementById('carouselTrack');
+            const indicators = document.querySelectorAll('.carousel-indicator');
+            currentSlide = (currentSlide + direction + campanhas.length) % campanhas.length;
+
+            // Atualizar a posição do carrossel
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+            // Atualizar os indicadores
+            indicators.forEach((indicator, index) => {
+                indicator.classList.toggle('active', index === currentSlide);
+            });
         }
 
-        // Função para voltar à página inicial
+        function navegarParaSlide(index) {
+            currentSlide = index;
+            navegarCarrossel(0); // Reaproveita a lógica de navegação
+        }
+
         function voltarHome() {
             window.location.href = 'index.html';
         }
 
-        // Função para selecionar campanha e armazenar dados no localStorage
-        function selecionarCampanha(nome, imagem, descricao, instituicoes) {
+        function selecionarCampanha(nome, imagem, descricao) {
             localStorage.setItem('campanhaNome', nome);
             localStorage.setItem('campanhaImagem', imagem);
             localStorage.setItem('campanhaDescricao', descricao);
-            localStorage.setItem('campanhaInstituicoes', JSON.stringify(instituicoes));
 
-            window.location.href = 'campanhas.html';
+            window.location.href = 'campanha-detalhe.html';
         }
     </script>
 </body>
