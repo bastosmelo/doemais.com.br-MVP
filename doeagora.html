@@ -146,7 +146,7 @@
         document.getElementById('donationForm').addEventListener('change', function () {
             const addressGroup = document.getElementById('addressGroup');
             const isSameAddress = document.getElementById('sameAddressYes').checked;
-
+    
             // Esconde o campo de endereço se o usuário marcar "Sim"
             if (isSameAddress) {
                 addressGroup.style.display = 'none';
@@ -154,7 +154,13 @@
                 addressGroup.style.display = 'block';
             }
         });
+    
+        document.getElementById('donationForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Evita o envio do formulário e o recarregamento da página
+            alert('Doação realizada com sucesso. Aguarde contato para recolhimento da doação.');
+        });
     </script>
+    
 </body>
 </html>
  
