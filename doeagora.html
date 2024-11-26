@@ -3,8 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Doe.App</title>
+    <title>Doe.App - Doe Agora</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column; /* Elementos em coluna */
+            align-items: center; /* Alinhar horizontalmente ao centro */
+            justify-content: center; /* Alinhar verticalmente ao centro */
+            min-height: 100vh; /* Altura mínima da tela */
+            background-color: #f4f4f4; /* Cor de fundo para melhorar o contraste */
+        }
+
+        header {
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #426544;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: 50px auto;
+            background-color: #fff;
+            color: #426544;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+         }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .form-group div {
+            display: flex;
+            justify-content: center; /* Centraliza horizontalmente os itens */
+            align-items: center; /* Alinha os itens verticalmente */
+            gap: 10px; /* Adiciona espaçamento entre "Sim" e "Não" */
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            text-align: center; /* Centraliza o texto dentro do input */
+        }
+
+        .btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #426544;
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #69996c;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 12px;
+            display: none;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <!-- Cabeçalho -->
@@ -12,24 +96,8 @@
         <div class="logo">
             <img src="Imagens/Logo-Doe.App.png" alt="Logo Doe.App">
         </div>
-        <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Digite para pesquisar..." aria-label="Digite para pesquisar">
-            <button id="searchButton" aria-label="Botão Pesquisar">Pesquisar</button>
-        </div>
         <div class="header-right">
-            <button class="doe-agora" onclick="doarAgora()" aria-label="Doe Agora">Doe Agora</button>
-        </div>
-        <div class="container">
-            <button class="menu-toggle" aria-label="Abrir Menu">&#9776;</button>
-            <nav class="nav">
-                <a href="#campanhas" aria-label="Ir para campanhas">Campanhas</a>
-                <a href="#instituicoes" aria-label="Ir para instituições">Instituições</a>
-                <a href="#about" aria-label="Ir para Sobre">Sobre</a>
-                <a href="#contact" aria-label="Ir para Contato">Contato</a>
-            </nav>
-            <a href="#" id="back-to-top" class="top-link" aria-label="Voltar ao topo">&#9650;</a>
-        </div>
-        <div class="header-right">
+            <button class="home" onclick="voltarPagina()">Voltar</button>
             <button class="logon" onclick="window.location.href='perfil.html'" aria-label="Perfil">
                 Fulano <img src="Imagens/Logado.jpg" alt="Foto do perfil" class="social-icons">
             </button>
@@ -38,5 +106,62 @@
             </button>
         </div>
     </header>
+    <p><h1>Faça sua doação</h1></p>
+    <div class="form-container">
+        <form id="donationForm">
+            <div class="form-group">
+                <label for="name">Nome</label>
+                <input type="text" id="name" name="name" required>
+                <span class="error-message" id="nameError">Por favor, insira seu nome.</span>
+            </div>
+            <div class="form-group">
+                <label for="phone">Telefone para Contato</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{11}" required>
+                <span class="error-message" id="phoneError">Por favor, insira um telefone válido (apenas números).</span>
+            </div>
+            <div class="form-group">
+                <label>O endereço de recolhimento será o mesmo do cadastro?</label>
+                <div style="display: flex; gap: 10px;">
+                    <div>
+                        <input type="radio" id="sameAddressYes" name="sameAddress" value="yes" required>
+                        <label for="sameAddressYes">Sim</label>
+                    </div>
+                    <div>
+                        <input type="radio" id="sameAddressNo" name="sameAddress" value="no">
+                        <label for="sameAddressNo">Não</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" id="addressGroup" style="display: block;">
+                <label for="address">Endereço de Recolhimento</label>
+                <textarea id="address" name="address" rows="3"></textarea>
+                <span class="error-message" id="addressError">Por favor, insira um endereço.</span>
+            </div>
+            <div class="form-group">
+                <label for="donation">O que você deseja doar?</label>
+                <textarea id="donation" name="donation" rows="3" required></textarea>
+                <span class="error-message" id="donationError">Por favor, descreva sua doação.</span>
+            </div>
+            <button type="submit" class="btn">Doe Agora</button>
+        </form>
+    </div>
+
+    <script>
+        function voltarPagina() {
+            window.history.back();
+        }
+    
+        document.getElementById('donationForm').addEventListener('change', function () {
+            const addressGroup = document.getElementById('addressGroup');
+            const isSameAddress = document.getElementById('sameAddressYes').checked;
+
+            // Esconde o campo de endereço se o usuário marcar "Sim"
+            if (isSameAddress) {
+                addressGroup.style.display = 'none';
+            } else {
+                addressGroup.style.display = 'block';
+            }
+        });
+    </script>
 </body>
 </html>
