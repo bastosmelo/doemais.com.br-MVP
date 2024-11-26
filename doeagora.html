@@ -13,26 +13,28 @@
             flex-direction: column; /* Elementos em coluna */
             align-items: center; /* Alinhar horizontalmente ao centro */
             justify-content: center; /* Alinhar verticalmente ao centro */
-            min-height: 100vh; /* Altura mínima da tela */
             background-color: #f4f4f4; /* Cor de fundo para melhorar o contraste */
+            overflow: hidden;
         }
 
         header {
-            top: 0;
-            left: 0;
             width: 100%;
             background-color: #426544;
-            padding: 10px 20px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            z-index: 1000;
+        }
+
+        h1 {
+            margin: 5px 0; /* Reduz o espaço vertical */
+            text-align: center; /* Centraliza o título */
         }
 
         .form-container {
             max-width: 500px;
             margin: 50px auto;
+            margin-top: 2px; /* Aproxima o formulário do título */
             background-color: #fff;
             color: #426544;
             padding: 30px;
@@ -155,3 +157,4 @@
     </script>
 </body>
 </html>
+ 
