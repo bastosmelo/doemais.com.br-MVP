@@ -50,8 +50,25 @@
         }
 
         function doarAgora() {
-            alert('Redirecionando para doação...');
+            // Verifica se o usuário está logado
+            const usuarioLogado = localStorage.getItem('usuarioLogado');
+
+            if (usuarioLogado) {
+                // Usuário está logado, redireciona para a página de doação
+                window.location.href = "doeagora.html";
+            } else {
+                // Salva a página atual para redirecionamento após login
+                localStorage.setItem('ultimaPagina', window.location.href);
+                const desejaLogar = confirm("Você precisa estar logado para fazer uma doação. Deseja fazer login agora?");
+                if (desejaLogar) {
+                    window.location.href = "login.html"; // Página de login
+                }
+            }
         }
+
+        localStorage.setItem('usuarioLogado', JSON.stringify({ nome: "Fulano", email: "fulano@email.com" }));
+
+        localStorage.removeItem('usuarioLogado');
 
         function voltarHome() {
             window.location.href = "index.html";
