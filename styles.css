@@ -235,7 +235,8 @@ button.home:hover {
 
 .header-right {
     display: flex;
-    gap: 10px;
+    gap: 10px; /* Espaçamento entre os botões */
+    align-items: center;
 }
 
 .header-right .social-icons {
@@ -244,6 +245,9 @@ button.home:hover {
     border-radius: 50%;
 }
 
+.header-buttons {
+
+}
 
 /* Até aqui está OK */
 
