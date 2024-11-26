@@ -157,7 +157,15 @@
     
         document.getElementById('donationForm').addEventListener('submit', function (event) {
             event.preventDefault(); // Evita o envio do formulário e o recarregamento da página
+    
             alert('Doação realizada com sucesso. Aguarde contato para recolhimento da doação.');
+    
+            // Limpa o formulário
+            this.reset();
+    
+            // Exibe novamente o campo de endereço (caso tenha sido ocultado)
+            const addressGroup = document.getElementById('addressGroup');
+            addressGroup.style.display = 'block';
         });
     </script>
     
